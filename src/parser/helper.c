@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 19:45:05 by asobolev         ###   ########.fr       */
+/*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
+/*   Updated: 2026/03/13 20:40:19 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include   "push_swap.h"
 
-int main()
+int arr_len(char **s)
 {
-   int i=0;
-   int len;
-   char *strng = "   21 44 55 86";
+    int i;
 
-    char **splitend =splitt(strng);
-    len = arr_len(splitend);
-    
-     printf("%d",len);
-     
-    while(splitend[i]!=NULL)
-    {
-        
-        printf(" ");
-        printf("%ld",ft_atol(splitend[i]));
+    i = 0;
+    while (arr[i] != NULL)
         i++;
-    }
-    
+    return(i);
+}
+
+int is digit(char a)
+{
+    if (a => '48' && a =< '57')
+        return(1);
+    return(0);
 }

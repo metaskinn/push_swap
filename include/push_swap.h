@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 03:21:29 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 19:42:58 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**splitt(char *s);
 char	*ft_strdup(const char *s);
 
 int		error(void);
+int     arr_len(char **s);
 
 long	ft_atol(char *str);
 
