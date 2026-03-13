@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 01:21:17 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:32:20 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ size_t	ft_strlen(const char *s);
 
 void	free_split(char **arr);
 void	*ft_memset(void *b, int c, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif

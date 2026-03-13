@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 01:21:17 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:32:50 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**split(char *s)
 		return (NULL);
 	wordcount = get_wordcount(s);
 	i = 0;
-	ptr = malloc((wordcount + 1) * sizeof(char *));
+	ptr = ft_calloc((wordcount + 1), sizeof(char *));
 	if (!ptr)
 		return (NULL);
 	while (i < wordcount)
@@ -78,6 +78,5 @@ char	**split(char *s)
 			return (free_split(ptr), NULL);
 		s = s + j;
 	}
-	ptr[i] = NULL;
 	return (ptr);
 }

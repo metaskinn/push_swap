@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+static long	parse_number(char *str, int *i, int sign)
+{
+	long	result;
+
+	result = 0;
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10 + (str[*i] - '0');
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+			return (error());
+		(*i)++;
+	}
+	return (result * sign);
+}
+
 long	ft_atol(char *str)
 {
 	long	result;
@@ -33,13 +48,7 @@ long	ft_atol(char *str)
 	}
 	if (str[i] < '0' || str[i] > '9')
 		return (error());
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
-			return (error());
-		i++;
-	}
+	result = parse_number(str, &i, sign);
 	while (is_wspace(str[i]))
 		i++;
 	if (str[i] != '\0')

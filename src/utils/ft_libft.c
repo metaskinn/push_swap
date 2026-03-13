@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 01:23:00 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:31:58 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_strdup(const char *s)
 	char	*start;
 	char	*ptr;
 
-	ptr = malloc(ft_strlen(s) + 1);
+	ptr = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
 	start = ptr;
@@ -77,4 +77,19 @@ char	*ft_strdup(const char *s)
 	}
 	*ptr = '\0';
 	return (start);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*mem;
+	size_t	total;
+
+	if (size != 0 && count > (size_t)-1 / size)
+		return (NULL);
+	total = count * size;
+	mem = malloc(total);
+	if (!mem)
+		return (NULL);
+	ft_memset(mem, 0, total);
+	return (mem);
 }
