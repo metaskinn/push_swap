@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bench.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 02:30:10 by metaskin         ###   ########.fr       */
+/*   Created: 2026/03/14 01:48:15 by metaskin          #+#    #+#             */
+/*   Updated: 2026/03/14 02:17:52 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef BENCH_H
+# define BENCH_H
 
-int	main(int argc, char **argv)
+typedef enum e_which_algo
 {
-	t_flags	flag;
-	char	**args;
-	int		need_free;
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_which_algo;
 
-	if (parse_input(argc, argv, &flag, &args, &need_free) == 0)
-		return (0);
-	(void)flag;
-	if (need_free)
-		free_split(args);
-	return (0);
-}
+typedef struct s_flags
+{
+	t_which_algo	which_algo;
+	int				bench;
+	int				algo_set;
+}	t_flags;
+
+void	init_flags(t_flags *flag);
+int		is_flag(char *arg);
+int	apply_flag(t_flags *flags, char *arg);
+int	parse_flags(int argc, char **argv, t_flags *flags, int *start);
+
+
+#endif

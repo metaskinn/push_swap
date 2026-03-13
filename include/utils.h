@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 02:30:10 by metaskin         ###   ########.fr       */
+/*   Created: 2026/03/14 02:03:05 by metaskin          #+#    #+#             */
+/*   Updated: 2026/03/14 02:12:14 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	main(int argc, char **argv)
-{
-	t_flags	flag;
-	char	**args;
-	int		need_free;
+# include <stdlib.h>
 
-	if (parse_input(argc, argv, &flag, &args, &need_free) == 0)
-		return (0);
-	(void)flag;
-	if (need_free)
-		free_split(args);
-	return (0);
-}
+int		error(void);
+int		is_intrange(long num);
+int		is_numstr(char *str);
+
+#endif
