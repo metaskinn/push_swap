@@ -19,3 +19,6 @@ obj/*
 
 /.vscode
 .vscode
+# clangd / editor config
+compile_flags.txt
+.clangd

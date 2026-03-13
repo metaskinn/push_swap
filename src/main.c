@@ -3,27 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 15:02:08 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 21:39:03 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int main()
+int	main(int argc, char **argv)
 {
-   /* int i=0;
-   char *a = "31 2 7 90 7 09 1009";
-   
-    char **b= splitt(a);
-   while(b[i])
-   {
-    printf("%s\n", b[i]);
-    i++;
-   }*/
-   
-   char *strng = "   2147483647   ";
-   printf("%ld",ft_atol(strng));
+	(void)argv;
+	if (argc < 2)
+		return (0);
+	return (0);
 }
