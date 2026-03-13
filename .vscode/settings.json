@@ -7,7 +7,6 @@
   "editor.tabSize": 4,
   "editor.rulers": [80],
   "editor.renderWhitespace": "boundary",
-  "editor.formatOnSave": false,
   "editor.wordWrap": "off",
   "editor.minimap.enabled": false,
   "files.associations": {
