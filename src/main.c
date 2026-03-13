@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 15:02:08 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 16:39:29 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 int main()
 {
-   /* int i=0;
-   char *a = "31 2 7 90 7 09 1009";
+
    
-    char **b= splitt(a);
-   while(b[i])
-   {
-    printf("%s\n", b[i]);
-    i++;
-   }*/
-   
-   char *strng = "   2147483647   ";
+   char strng[] = "   2147483647";
    printf("%ld",ft_atol(strng));
 }
