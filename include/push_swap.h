@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 00:31:38 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 03:21:29 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(char const *s);
 char	**splitt(char *s);
 char	*ft_strdup(const char *s);
 

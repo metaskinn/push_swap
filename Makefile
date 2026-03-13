@@ -4,18 +4,14 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I include/
 
-
-
 SRC_DIR = src
 OBJ_DIR = obj
 
-
-
 SRCS = \
-	${PATH}/main.c \
-	${PATH}/parser/split.c \
-	${PATH}/parser/atol.c\
-	${PATH}/parser/ft_libft.c
+	${SRC_DIR}/main.c \
+	${SRC_DIR}/parser/split.c \
+	${SRC_DIR}/parser/atol.c\
+	${SRC_DIR}/parser/ft_libft.c
 	
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
@@ -26,6 +22,7 @@ ${NAME} : ${OBJS}
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -rf ${OBJ_DIR}
 
