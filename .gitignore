@@ -17,8 +17,9 @@ obj/*
 *.out
 *.a
 
-/.vscode
-.vscode
+# /.vscode
+# .vscode
+
 # clangd / editor config
 compile_flags.txt
 .clangd
