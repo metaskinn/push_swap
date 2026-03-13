@@ -16,3 +16,6 @@ obj/*
 *.dSYM/
 *.out
 *.a
+
+/.vscode
+.vscode

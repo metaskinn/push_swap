@@ -12,7 +12,7 @@ SRCS = \
 	${SRC_DIR}/parser/split.c \
 	${SRC_DIR}/parser/atol.c\
 	${SRC_DIR}/parser/ft_libft.c\
-	
+
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: ${NAME}
@@ -31,4 +31,48 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all fclean clean re
+# ─── Git Workflow Alex ────────────────────────────────────────────────────────────
+
+sabah-a:
+	git checkout main
+	git pull origin main
+	git checkout alex
+	git merge main
+
+push-a:
+	@read -p "Commit mesaji: " msg; \
+	git add .; \
+	git commit -m "$$msg"; \
+	git push origin alex
+
+main-a:
+	git checkout main
+	git pull origin main
+	git merge alex
+	git push origin main
+	git checkout alex
+
+
+# ─── Git Workflow Meltem ────────────────────────────────────────────────────────────
+
+sabah-m:
+	git checkout main
+	git pull origin main
+	git checkout meltem
+	git merge main
+
+push-m:
+	@read -p "Commit mesaji: " msg; \
+	git add .; \
+	git commit -m "$$msg"; \
+	git push origin meltem
+
+main-m:
+	git checkout main
+	git pull origin main
+	git merge meltem
+	git push origin main
+	git checkout meltem
+
+
+.PHONY: all fclean clean re sabah-a push-a main-a sabah-m push-m main-m
