@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 23:20:06 by asobolev         ###   ########.fr       */
+/*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
+/*   Updated: 2026/03/13 22:00:35 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
-{
-	(void)argv;
-	if (argc < 2)
-		return (0);
-	return (0);
-#include "push_swap.h"
+#include   "push_swap.h"
 
-int main()
+int arr_len(char **s)
 {
-   int i=0;
-   int len;
-   int atol;
-   char *strng = "   21 44+ 55 86";
-   
+    int i;
 
-    char **splitend =splitt(strng);
-    len = arr_len(splitend);
-    
-     printf("%d",len);
-     
-    while(splitend[i]!=NULL)
-    {
-        
-        printf(" ");
-        atol=ft_atol(splitend[i])
+    i = 0;
+    while (arr[i] != NULL)
         i++;
-    }
-    
+    return(i);
+}
+
+int is_digit(char a)
+{
+    if (a =>-2147483648  && a =< 2147483647)
+        return(1);
+    return(0);
 }
