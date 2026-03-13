@@ -12,6 +12,7 @@ SRCS = \
 	${SRC_DIR}/parser/split.c \
 	${SRC_DIR}/parser/atol.c\
 	${SRC_DIR}/parser/ft_libft.c\
+	${SRC_DIR}/parser/helper.c\
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
@@ -56,15 +57,23 @@ a-main:
 a-pushall: a-push a-main
 
 
-# ─── Git Workflow Meltem ────────────────────────────────────────────────────────────
+# ─── Git Workflow Meltem ──────────────────────────────────
 
-m-pull:
+m-check:
+	@test "$$(git branch --show-current)" = "meltem" || \
+	(echo "Yanlis branch'tesin"; exit 1)
+
+mstat:
+	@git branch --show-current
+	@git status --short
+
+mg:
 	git checkout main
 	git pull origin main
 	git checkout meltem
 	git merge main
 
-m-p:
+mp: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
 	read -p "Scope (opsiyonel): " scope; \
 	read -p "Mesaj: " subject; \
@@ -72,16 +81,21 @@ m-p:
 	if [ -n "$$scope" ]; then msg="$$msg($$scope)"; fi; \
 	msg="$$msg: $$subject"; \
 	git add . && \
-	git commit -m "$$msg" && \
-	git push origin meltem
+	if ! git diff --cached --quiet; then \
+		git commit -m "$$msg" && git push origin meltem; \
+	else \
+		echo "Staged degisiklik yok."; \
+	fi
 
-m-m:
+mm:
 	git checkout main
 	git pull origin main
 	git merge meltem
 	git push origin main
 	git checkout meltem
 
-m-pa: m-p m-m
+ma: mp mm
 
-.PHONY: all fclean clean re a-pull a-push a-main a-pushall m-pull m-p m-m m-pa
+.PHONY: all clean fclean re \
+	a-pull a-push a-main a-pushall \
+	m-check mstat mg mp mm ma
