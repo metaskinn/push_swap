@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 19:45:05 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 23:15:12 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int main()
 {
    int i=0;
    int len;
-   char *strng = "   21 44 55 86";
+   int atol;
+   char *strng = "   21 44+ 55 86";
+   
 
     char **splitend =splitt(strng);
     len = arr_len(splitend);
@@ -27,7 +29,7 @@ int main()
     {
         
         printf(" ");
-        printf("%ld",ft_atol(splitend[i]));
+        atol=ft_atol(splitend[i])
         i++;
     }
     

@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 20:40:19 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 22:00:35 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int arr_len(char **s)
     return(i);
 }
 
-int is digit(char a)
+int is_digit(char a)
 {
-    if (a => '48' && a =< '57')
+    if (a =>-2147483648  && a =< 2147483647)
         return(1);
     return(0);
 }
