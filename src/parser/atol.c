@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 12:54:35 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 16:37:13 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ long	ft_atol(char *str)
 		idx++;
 	if (str[idx] == '-' || str[idx] == '+')
 	{
-		if (str[idx] == '-')
-			sign = -1;
-		idx++;
-	}
-	while (str[idx] >= '0' && str[idx] <= '9')
-	{
-		result = result * 10 + (str[idx] - '0');
-		if(result > 2147483647 || result < -2147483648)
+        if (str[idx] == '-')
+        sign = -1;
+    idx++;
+}
+while (str[idx] >= '0' && str[idx] <= '9')
+{
+    result = result * 10 + (str[idx] - '0');
+    if((result * sign) < -2147483648 || (result * sign) > 2147483647)
+    
 			return (error());
 
 		idx++;
