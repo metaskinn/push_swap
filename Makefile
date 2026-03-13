@@ -65,7 +65,12 @@ m-pull:
 	git merge main
 
 m-p:
-	@read -p "Commit mesaji: " msg; \
+	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
+	read -p "Scope (opsiyonel): " scope; \
+	read -p "Mesaj: " subject; \
+	msg=$$type; \
+	if [ -n "$$scope" ]; then msg="$$msg($$scope)"; fi; \
+	msg="$$msg: $$subject"; \
 	git add . && \
 	git commit -m "$$msg" && \
 	git push origin meltem
