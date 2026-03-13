@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   atol.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 12:54:35 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 21:47:02 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int error(void)
+int	error(void)
 {
-	write(2, "error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -27,7 +27,9 @@ long	ft_atol(char *str)
 	result = 0;
 	sign = 1;
 	idx = 0;
-	while ((str[idx] >= 9 && str[idx] <= 13) || str[idx] == 32)
+	if (!str)
+		return (error());
+	while (white_space(str[idx]))
 		idx++;
 	if (str[idx] == '-' || str[idx] == '+')
 	{
@@ -35,13 +37,18 @@ long	ft_atol(char *str)
 			sign = -1;
 		idx++;
 	}
+	if (str[idx] < '0' || str[idx] > '9')
+		return (error());
 	while (str[idx] >= '0' && str[idx] <= '9')
 	{
 		result = result * 10 + (str[idx] - '0');
-		if(result > 2147483647 || result < -2147483648)
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
 			return (error());
-
 		idx++;
 	}
+	while (white_space(str[idx]))
+		idx++;
+	if (str[idx] != '\0')
+		return (error());
 	return (result * sign);
 }

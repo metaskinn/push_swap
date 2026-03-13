@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 14:10:21 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 21:47:02 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     white_space(char c)
+int	white_space(char c)
 {
-    if (c == '\r' || c == '\t' || c == '\n' || c == '\v' || c == '\f' 
-        || c == ' ')
-        return(1);
-    return(0);
+	if (c == '\r' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == ' ')
+		return (1);
+	return (0);
 }
 
 static int	get_wordcount(char const *s)
@@ -30,29 +30,29 @@ static int	get_wordcount(char const *s)
 		while (*s && white_space(*s) == 1)
 			s++;
 		if (*s)
-			wordcount ++;
+			wordcount++;
 		while (*s && white_space(*s) == 0)
 			s++;
 	}
 	return (wordcount);
 }
 
-static void	freeptr(char **ptr)
+void	free_split(char **arr)
 {
 	int	i;
 
-	if (!ptr)
+	if (!arr)
 		return ;
 	i = 0;
-	while (ptr[i])
+	while (arr[i])
 	{
-		free(ptr[i]);
+		free(arr[i]);
 		i++;
 	}
-	free(ptr);
+	free(arr);
 }
 
-char	**splitt(char *s)
+char	**split(char *s)
 {
 	int		wordcount;
 	int		i;
@@ -75,7 +75,7 @@ char	**splitt(char *s)
 			j++;
 		ptr[i++] = ft_substr(s, 0, j);
 		if (!ptr[i - 1])
-			return (freeptr(ptr), NULL);
+			return (free_split(ptr), NULL);
 		s = s + j;
 	}
 	ptr[i] = NULL;
