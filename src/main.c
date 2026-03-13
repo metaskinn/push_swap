@@ -3,35 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 00:11:46 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/14 00:19:16 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
-{
-	(void)argv;
-	if (argc < 2)
-		return (0);
-	return (0);
 #include "push_swap.h"
 
-int main()
+int	main(int argc, char **argv)
 {
-   int i=0;
-   int atol;
-   char *strng = "   21 44+ 55 86";
+	int		i;
+	int		atol;
+	char	*strng;
+	char	**splitend;
 
-    char **splitend =splitt(strng);
-
-    while(splitend[i]!=NULL)
-    {
-
-        if (is_int(atol) == 0)
-           error();
-        i++;
-    }
-    
+	if (argc < 2)
+		return (0);
+	i = 0;
+	strng = "   21 44+ 55 86";
+	splitend = split(strng);
+	while (splitend[i] != NULL)
+	{
+		if (is_int(atol) == 0)
+			error();
+		i++;
+	}
+	return (0);
 }
