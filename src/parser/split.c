@@ -6,13 +6,13 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 21:47:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:21:17 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	white_space(char c)
+int	is_wspace(char c)
 {
 	if (c == '\r' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
 		|| c == ' ')
@@ -27,11 +27,11 @@ static int	get_wordcount(char const *s)
 	wordcount = 0;
 	while (*s)
 	{
-		while (*s && white_space(*s) == 1)
+		while (*s && is_wspace(*s) == 1)
 			s++;
 		if (*s)
 			wordcount++;
-		while (*s && white_space(*s) == 0)
+		while (*s && is_wspace(*s) == 0)
 			s++;
 	}
 	return (wordcount);
@@ -68,10 +68,10 @@ char	**split(char *s)
 		return (NULL);
 	while (i < wordcount)
 	{
-		while (white_space(*s))
+		while (is_wspace(*s))
 			s++;
 		j = 0;
-		while (white_space(s[j]) == 0 && s[j] != '\0')
+		while (is_wspace(s[j]) == 0 && s[j] != '\0')
 			j++;
 		ptr[i++] = ft_substr(s, 0, j);
 		if (!ptr[i - 1])
