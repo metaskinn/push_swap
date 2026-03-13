@@ -15,5 +15,6 @@
   "[makefile]": {
     "editor.insertSpaces": false,
     "editor.tabSize": 4
-  }
+},
+"makefile.configureOnOpen": false
 }

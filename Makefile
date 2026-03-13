@@ -10,8 +10,10 @@ OBJ_DIR = obj
 SRCS = \
 	${SRC_DIR}/main.c \
 	${SRC_DIR}/parser/split.c \
+	${SRC_DIR}/parser/parse.c \
 	${SRC_DIR}/parser/atol.c \
-	${SRC_DIR}/utils/ft_libft.c \
+	${SRC_DIR}/bench/flags.c \
+	${SRC_DIR}/utils/oldfuncs.c \
 	${SRC_DIR}/utils/checks.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

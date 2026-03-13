@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper.c                                           :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 01:21:17 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 02:35:20 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	error(void)
 {
-	write(2, "error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -41,4 +41,28 @@ int	is_numstr(char *str)
 		i++;
 	}
 	return (1);
+}
+
+int	has_dup(char **args)
+{
+	int		i;
+	int		j;
+	long	a;
+	long	b;
+
+	i = 0;
+	while (args[i])
+	{
+		a = ft_atol(args[i]);
+		j = i + 1;
+		while (args[j])
+		{
+			b = ft_atol(args[j]);
+			if (a == b)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
