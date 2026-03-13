@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atol.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 21:47:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/13 23:19:41 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
