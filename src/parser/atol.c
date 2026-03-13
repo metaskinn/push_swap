@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atol.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 00:11:55 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:21:17 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,33 @@ long	ft_atol(char *str)
 {
 	long	result;
 	int		sign;
-	int		idx;
+	int		i;
 
 	result = 0;
 	sign = 1;
-	idx = 0;
+	i = 0;
 	if (!str)
 		return (error());
-	while (white_space(str[idx]))
-		idx++;
-	if (str[idx] == '-' || str[idx] == '+')
+	while (is_wspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[idx] == '-')
+		if (str[i] == '-')
 			sign = -1;
-		idx++;
+		i++;
 	}
-	if (str[idx] < '0' || str[idx] > '9')
+	if (str[i] < '0' || str[i] > '9')
 		return (error());
-	while (str[idx] >= '0' && str[idx] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (str[idx] - '0');
+		result = result * 10 + (str[i] - '0');
 		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
 			return (error());
-		idx++;
+		i++;
 	}
-	while (white_space(str[idx]))
-		idx++;
-	if (str[idx] != '\0')
+	while (is_wspace(str[i]))
+		i++;
+	if (str[i] != '\0')
 		return (error());
 	return (result * sign);
 }

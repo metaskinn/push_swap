@@ -6,11 +6,15 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 21:03:58 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 01:23:00 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// bunlar kulanılmıyor ama ileride lazım olabilir diye utils klasöründe bıraktım
+
+
 
 void	*ft_memset(void *b, int c, size_t n)
 {
