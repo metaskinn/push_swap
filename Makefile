@@ -33,46 +33,49 @@ re: fclean all
 
 # ─── Git Workflow Alex ────────────────────────────────────────────────────────────
 
-sabah-a:
+a-pull:
 	git checkout main
 	git pull origin main
 	git checkout alex
 	git merge main
 
-push-a:
+a-push:
 	@read -p "Commit mesaji: " msg; \
 	git add .; \
 	git commit -m "$$msg"; \
 	git push origin alex
 
-main-a:
+a-main:
 	git checkout main
 	git pull origin main
 	git merge alex
 	git push origin main
 	git checkout alex
 
+a-pushall: a-push a-main
+
 
 # ─── Git Workflow Meltem ────────────────────────────────────────────────────────────
 
-sabah-m:
+m-pull:
 	git checkout main
 	git pull origin main
 	git checkout meltem
 	git merge main
 
-push-m:
+m-push:
 	@read -p "Commit mesaji: " msg; \
 	git add .; \
 	git commit -m "$$msg"; \
 	git push origin meltem
 
-main-m:
+m-main:
 	git checkout main
 	git pull origin main
 	git merge meltem
 	git push origin main
 	git checkout meltem
 
+m-pushall: m-push m-main
 
-.PHONY: all fclean clean re sabah-a push-a main-a sabah-m push-m main-m
+.PHONY: all fclean clean re a-pull m-pull a-push m-push a-main m-main a-pushall m-pushall
