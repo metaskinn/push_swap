@@ -6,17 +6,11 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 23:19:41 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/14 00:08:32 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 long	ft_atol(char *str)
 {
