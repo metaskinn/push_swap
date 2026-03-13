@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/13 00:16:21 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/13 03:27:08 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	freeptr(char **ptr)
 	free(ptr);
 }
 
-char	**ft_split(char const *s)
+char	**splitt(char const *s)
 {
 	int		wordcount;
 	int		i;
@@ -79,4 +79,12 @@ char	**ft_split(char const *s)
 		s = s + j;
 	}
 	return (ptr);
+}
+
+int ()
+{
+    char *
+    char a[]="31 2 7 90 7 09 1009";
+    splitt(a)
+    
 }
