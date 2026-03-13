@@ -42,8 +42,8 @@ a-pull:
 
 a-push:
 	@read -p "Commit mesaji: " msg; \
-	git add .; \
-	git commit -m "$$msg"; \
+	git add . && \
+	git commit -m "$$msg" && \
 	git push origin alex
 
 a-main:
@@ -64,19 +64,19 @@ m-pull:
 	git checkout meltem
 	git merge main
 
-m-push:
+m-p:
 	@read -p "Commit mesaji: " msg; \
-	git add .; \
-	git commit -m "$$msg"; \
+	git add . && \
+	git commit -m "$$msg" && \
 	git push origin meltem
 
-m-main:
+m-m:
 	git checkout main
 	git pull origin main
 	git merge meltem
 	git push origin main
 	git checkout meltem
 
-m-pushall: m-push m-main
+m-pa: m-p m-m
 
-.PHONY: all fclean clean re a-pull m-pull a-push m-push a-main m-main a-pushall m-pushall
+.PHONY: all fclean clean re a-pull a-push a-main a-pushall m-pull m-p m-m m-pa
