@@ -6,7 +6,7 @@
 /*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/13 23:20:17 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/14 00:09:05 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int     arr_len(char **s);
 
 long	ft_atol(char *str);
 
-int		white_space(char c);
+int 	is_wspace(char c);
+int     is_int(char a);
+int     is_digit(char a);
 
 size_t	ft_strlen(const char *s);
 
