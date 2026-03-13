@@ -1,0 +1,24 @@
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": false,
+  "editor.tabSize": 4,
+  "editor.rulers": [80],
+  "editor.renderWhitespace": "boundary",
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": false,
+  "files.associations": {
+    "*.h": "c"
+  },
+  "[c]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+  },
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  }
+}
