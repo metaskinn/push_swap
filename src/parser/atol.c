@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 04:34:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 06:40:54 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static long	parse_number(char *str, int *i, int sign)
 			return (error());
 		(*i)++;
 	}
-	return (result * sign);
+	return (result);
 }
 
 long	ft_atol(char *str)

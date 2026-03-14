@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 06:10:48 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 06:17:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ static void	check_args(char **args)
 int	args_input(int argc, char **argv, t_flags *flag, t_parse *parse)
 {
 	int	start;
-	char **pargs;
 
-	pargs = parse->args;
 	parse->args = NULL;
 	parse->need_free = 0;
 	init_flags(flag);
@@ -47,13 +45,13 @@ int	args_input(int argc, char **argv, t_flags *flag, t_parse *parse)
 		return (0);
 	if (argc - start == 1)
 	{
-		pargs = split(argv[start]);
-		if (!pargs || !(pargs[0]))
+		parse->args = split(argv[start]);
+		if (!parse->args || !(parse->args[0]))
 			error();
 		parse->need_free = 1;
 	}
 	else
 		parse->args = argv + start;
-	check_args(pargs);
+	check_args(parse->args);
 	return (1);
 }
