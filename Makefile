@@ -61,8 +61,11 @@ a-pushall: a-push a-main
 
 # ─── Git Workflow Meltem ──────────────────────────────────
 
+BRANCH_DEV := meltem
+BRANCH_MAIN := main
+
 m-check:
-	@test "$$(git branch --show-current)" = "meltem" || \
+	@test "$$(git branch --show-current)" = "$(BRANCH_DEV)" || \
 	(echo "Yanlis branch'tesin"; exit 1)
 
 mstat:
@@ -70,12 +73,15 @@ mstat:
 	@git status --short
 
 mg:
-	git checkout main
-	git pull origin main
-	git checkout meltem
-	git merge main
+	git checkout $(BRANCH_MAIN)
+	git pull origin $(BRANCH_MAIN)
+	git checkout $(BRANCH_DEV)
+	git merge $(BRANCH_MAIN)
 
 mp: m-check
+	@./scripts/ai-commit.sh
+
+mp-m: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
 	read -p "Scope (opsiyonel): " scope; \
 	read -p "Mesaj: " subject; \
@@ -84,20 +90,20 @@ mp: m-check
 	msg="$$msg: $$subject"; \
 	git add . && \
 	if ! git diff --cached --quiet; then \
-		git commit -m "$$msg" && git push origin meltem; \
+		git commit -m "$$msg" && git push origin $(BRANCH_DEV); \
 	else \
 		echo "Staged degisiklik yok."; \
 	fi
 
 mm:
-	git checkout main
-	git pull origin main
-	git merge meltem
-	git push origin main
-	git checkout meltem
+	git checkout $(BRANCH_MAIN)
+	git pull origin $(BRANCH_MAIN)
+	git merge $(BRANCH_DEV)
+	git push origin $(BRANCH_MAIN)
+	git checkout $(BRANCH_DEV)
 
 ma: mp mm
 
 .PHONY: all clean fclean re \
 	a-pull a-push a-main a-pushall \
-	m-check mstat mg mp mm ma
+	m-check mstat mg mp mm ma mp-m

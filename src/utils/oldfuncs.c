@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 02:01:26 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 04:14:13 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,18 @@ int	mt_strcmp(const char *s1, const char *s2)
 	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
 		idx++;
 	return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
+}
+static long	parse_number(char *str, int *i, int sign)
+{
+	long	result;
+
+	result = 0;
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10 + (str[*i] - '0');
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+			return (error());
+		(*i)++;
+	}
+	return (result * sign);
 }
