@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parser.h"
+#include "utils.h"
 
 static long	parse_number(char *str, int *i, int sign)
 {

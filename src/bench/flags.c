@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bench.h"
+#include "utils.h"
 
 void	init_flags(t_flags *flag)
 {

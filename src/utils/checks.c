@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
+#include "parser.h"
+#include <unistd.h>
 
 int	error(void)
 {

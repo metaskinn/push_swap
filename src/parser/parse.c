@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parser.h"
+#include "utils.h"
 
 static void	validate_args(char **args)
 {
