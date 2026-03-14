@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 02:34:35 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 04:33:51 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ static void	validate_args(char **args)
 		error();
 }
 
-int	parse_input(int argc, char **argv, t_flags *flag, char ***args,
-		int *need_free)
+int	parse_input(int argc, char **argv, t_flags *flag, t_parse *parse)
 {
 	int	start;
 
-	*args = NULL;
-	*need_free = 0;
+	parse->args = NULL;
+	parse->need_free = 0;
 	init_flags(flag);
 	if (parse_flags(argc, argv, flag, &start) != 0)
 		error();
@@ -45,13 +44,13 @@ int	parse_input(int argc, char **argv, t_flags *flag, char ***args,
 		return (0);
 	if (argc - start == 1)
 	{
-		*args = split(argv[start]);
-		if (!*args || !(*args)[0])
+		parse->args = split(argv[start]);
+		if (!parse->args || !(parse->args[0]))
 			error();
-		*need_free = 1;
+		parse->need_free = 1;
 	}
 	else
-		*args = argv + start;
-	validate_args(*args);
+		parse->args = argv + start;
+	validate_args(parse->args);
 	return (1);
 }
