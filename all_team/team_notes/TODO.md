@@ -2,10 +2,10 @@
 
 
 ## 1. Temel düzen
-- [ ] `push_swap.h` dosyasını yeniden düzenle
-- [ ] İsimlendirmeyi sabitle (`t_node`, `t_stack`, `t_ctx`, `do_sa` gibi)
-- [ ] Klasör yapısını netleştir
-- [ ] Makefile'ı düzenle
+- [x] `push_swap.h` dosyasını yeniden düzenle
+- [x] İsimlendirmeyi sabitle (`t_node`, `t_stack`, `t_ctx`, `do_sa` gibi)
+- [x] Klasör yapısını netleştir
+- [x] Makefile'ı düzenle
 
 ## 2. Veri yapıları
 - [ ] `t_node` oluştur

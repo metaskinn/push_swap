@@ -105,6 +105,35 @@ mm:
 
 ma: mp mm
 
+# ─── Testers ──────────────────────────────────────────────────────────────────
+
+TESTER_DIR := testers
+
+test:  re
+	@chmod +x $(TESTER_DIR)/parse_tester.sh
+	@$(TESTER_DIR)/parse_tester.sh --skip-build
+
+test-combo: re
+	@chmod +x $(TESTER_DIR)/parse_combo_tester.sh
+	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
+
+test-combo-deep: re
+	@chmod +x $(TESTER_DIR)/parse_combo_tester.sh
+	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build --max-args 1 --max-flags 1
+
+test-extended: re
+	@chmod +x $(TESTER_DIR)/parse_tester_extended.sh
+	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
+
+test-all: re
+	@chmod +x $(TESTER_DIR)/parse_tester.sh \
+	          $(TESTER_DIR)/parse_tester_extended.sh \
+	          $(TESTER_DIR)/parse_combo_tester.sh
+	@$(TESTER_DIR)/parse_tester.sh --skip-build
+	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
+	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
+
 .PHONY: all clean fclean re \
 	a-pull a-push a-main a-pushall \
-	m-check mstat mg mp mm ma mp-m
+	m-check mstat mg mp mm ma mp-m \
+	test test-extended test-combo test-combo-deep test-all
