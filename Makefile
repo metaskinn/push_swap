@@ -81,6 +81,7 @@ mg:
 
 mp: m-check
 	@$(HOME)/.local/bin/ai-commit
+	git push origin $(BRANCH_DEV)
 
 mp-m: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
