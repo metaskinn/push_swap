@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 03:10:49 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 03:19:38 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	init_flags(t_flags *flag)
 	flag->bench = 0;
 	flag->algo_set = 0;
 }
-
 
 int	is_flag(char *arg)
 {
@@ -86,3 +85,4 @@ int	parse_flags(int argc, char **argv, t_flags *flag, int *start)
 	*start = i;
 	return (0);
 }
+
