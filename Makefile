@@ -13,6 +13,7 @@ SRCS = \
 	${SRC_DIR}/parser/parse.c \
 	${SRC_DIR}/parser/atol.c \
 	${SRC_DIR}/bench/flags.c \
+	${SRC_DIR}/stack/stack.c \
 	${SRC_DIR}/utils/oldfuncs.c \
 	${SRC_DIR}/utils/newfuncs.c \
 	${SRC_DIR}/utils/checks.c

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:48:15 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 06:00:36 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 08:00:34 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct s_flags
 	int				bench;
 	int				algo_set;
 }					t_flags;
+
+typedef struct s_bench
+{
+	int				enabled;
+	int				total_ops;
+	int				disorder;
+	t_which_algo	strategy;
+}t_bench;
 
 void				init_flags(t_flags *flag);
 int					is_flag(char *arg);
