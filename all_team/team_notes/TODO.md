@@ -8,22 +8,22 @@
 - [x] Makefile'ı düzenle
 
 ## 2. Veri yapıları
-- [ ] `t_node` oluştur
-- [ ] `t_stack` oluştur
-- [ ] `t_strategy` enum oluştur
-- [ ] `t_op` enum oluştur
-- [ ] `t_bench` oluştur
-- [ ] `t_ctx` oluştur
+- [x] `t_node` oluştur
+- [x] `t_stack` oluştur
+- [x] `t_strategy` enum oluştur
+- [x] `t_op` enum oluştur
+- [x] `t_bench` oluştur
+- [x] `t_ctx` oluştur
 
 ## 3. Parser
-- [ ] `main(int argc, char **argv)` yaz
-- [ ] Flag parser yaz (`--simple`, `--medium`, `--complex`, `--adaptive`, `--bench`)
-- [ ] Tek string ve çoklu arg parse desteği ekle
-- [ ] Token doğrulama yap
-- [ ] `ft_atol` güvenli çalışsın
-- [ ] Duplicate kontrolü ekle
-- [ ] `stack a` oluştur
-- [ ] Hatalarda sadece `Error\n` yazdır
+- [x] `main(int argc, char **argv)` yaz
+- [x] Flag parser yaz (`--simple`, `--medium`, `--complex`, `--adaptive`, `--bench`)
+- [x] Tek string ve çoklu arg parse desteği ekle
+- [x] Token doğrulama yap
+- [x] `ft_atol` güvenli çalışsın
+- [x] Duplicate kontrolü ekle
+- [x] `stack a` oluştur
+- [x] Hatalarda sadece `Error\n` yazdır
 
 ## 4. Stack katmanı
 - [ ] `node_new`
