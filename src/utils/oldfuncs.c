@@ -6,13 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 04:16:43 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 04:33:54 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// bunlar kulanılmıyor ama ileride lazım olabilir diye utils klasöründe bıraktım
 void	*ft_memset(void *b, int c, size_t n)
 {
 	unsigned char	*byte_ptr;
@@ -89,13 +88,4 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_memset(mem, 0, total);
 	return (mem);
-}
-int	mt_strcmp(const char *s1, const char *s2)
-{
-	size_t	idx;
-
-	idx = 0;
-	while (s1[idx] && s2[idx] && s1[idx] == s2[idx])
-		idx++;
-	return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
 }
