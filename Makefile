@@ -79,7 +79,7 @@ mg:
 	git merge $(BRANCH_MAIN)
 
 mp: m-check
-	@./scripts/ai-commit.sh
+	@$(HOME)/.local/bin/ai-commit
 
 mp-m: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \

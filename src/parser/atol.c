@@ -6,12 +6,25 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 04:13:13 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 04:16:30 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+static long	parse_number(char *str, int *i, int sign)
+{
+	long	result;
 
+	result = 0;
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10 + (str[*i] - '0');
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+			return (error());
+		(*i)++;
+	}
+	return (result * sign);
+}
 long	ft_atol(char *str)
 {
 	long	result;
