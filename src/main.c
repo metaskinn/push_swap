@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parser.h"
 
 int	main(int argc, char **argv)
 {

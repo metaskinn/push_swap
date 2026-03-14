@@ -80,8 +80,7 @@ mg:
 	git merge $(BRANCH_MAIN)
 
 mp: m-check
-	@$(HOME)/.local/bin/ai-commit
-	git push origin $(BRANCH_DEV)
+	@AI_COMMIT_ONLY_BRANCH=$(BRANCH_DEV) $(HOME)/.local/bin/ai-commit
 
 mp-m: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
