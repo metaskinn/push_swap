@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 00:04:14 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 02:12:07 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 04:25:15 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,3 @@
 # define STACK_H
 
 #endif
-
