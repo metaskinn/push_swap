@@ -34,7 +34,7 @@ typedef struct s_bench
 	int				total_ops;
 	int				disorder;
 	t_which_algo	strategy;
-}t_bench;
+}				t_bench;
 
 void				init_flags(t_flags *flag);
 int					is_flag(char *arg);
