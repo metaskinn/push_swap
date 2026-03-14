@@ -6,14 +6,14 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 04:33:51 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/14 06:10:48 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "utils.h"
 
-static void	validate_args(char **args)
+static void	check_args(char **args)
 {
 	int		i;
 	long	number;
@@ -32,10 +32,12 @@ static void	validate_args(char **args)
 		error();
 }
 
-int	parse_input(int argc, char **argv, t_flags *flag, t_parse *parse)
+int	args_input(int argc, char **argv, t_flags *flag, t_parse *parse)
 {
 	int	start;
+	char **pargs;
 
+	pargs = parse->args;
 	parse->args = NULL;
 	parse->need_free = 0;
 	init_flags(flag);
@@ -45,13 +47,13 @@ int	parse_input(int argc, char **argv, t_flags *flag, t_parse *parse)
 		return (0);
 	if (argc - start == 1)
 	{
-		parse->args = split(argv[start]);
-		if (!parse->args || !(parse->args[0]))
+		pargs = split(argv[start]);
+		if (!pargs || !(pargs[0]))
 			error();
 		parse->need_free = 1;
 	}
 	else
 		parse->args = argv + start;
-	validate_args(parse->args);
+	check_args(pargs);
 	return (1);
 }
