@@ -6,13 +6,19 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 17:49:31 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/17 17:58:02 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bench.h"
 #include "utils.h"
 
+void	default_flag(t_flags *flag)
+{
+	flag->which_algo = ADAPTIVE;
+	flag->bench = 0;
+	flag->algo_did = 0;
+}
 
 int	are_flags(char *arg)
 {
@@ -60,7 +66,7 @@ int	apply_flag(t_flags *flag, char *arg)
 	return (0);
 }
 
-int	parse_flags(int argc, char **argv, t_flags *flag, int *start)
+int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 {
 	int	i;
 

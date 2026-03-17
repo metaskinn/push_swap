@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 16:30:34 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/17 18:16:22 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int	main(int argc, char **argv)
 	char	**splited;
 	int i;
 	long atoled;
-	
+
 	i = 0;
 
 	if (argc == 2)
 		splited = split(argv[1]);
 	else
-		splited = argv + 1;	
-	
+		splited = argv + 1;
+
 	while (splited[i] != NULL)
 {
     is_numstr(splited[i]);
@@ -33,5 +33,15 @@ int	main(int argc, char **argv)
     i++;
 }
 	has_dup(splited);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_program	program;
+
+	if (read_args( argc, argv,))
+		return (0);
+
 	return (0);
 }

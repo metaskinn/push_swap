@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   algo.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 18:02:56 by metaskin         ###   ########.fr       */
+/*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
+/*   Updated: 2026/03/17 18:23:10 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef ALGO_H
+# define ALGO_H
 
-# include "bench.h"
-
-char		**split(char *s);
-long		ft_atol(char *str);
-int			is_wspace(char c);
-void		free_split(char **arr);
-
-int	read_args(int argc, char **argv, t_flags *flag);
+typedef enum e_op
+{
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR
+}			t_op;
 
 #endif
