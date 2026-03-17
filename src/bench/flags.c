@@ -46,10 +46,11 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 ||
-		flag->algo_did && (mt_strcmp(arg, "--simple") == 0 ||
-		mt_strcmp(arg, "--medium") == 0 || mt_strcmp(arg, "--complex") == 0 ||
-		mt_strcmp(arg, "--adaptive") == 0)))
+	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0
+			|| mt_strcmp(arg, "--simple") == 0
+			|| mt_strcmp(arg, "--medium") == 0
+			|| mt_strcmp(arg, "--complex") == 0
+			|| mt_strcmp(arg, "--adaptive") == 0))
 		return (1); // if algo ar did flag is bench --like extra
 	else if (mt_strcmp(arg, "--bench") == 0)
 		flag->bench = 1; // if bench is didnot

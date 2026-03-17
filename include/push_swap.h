@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 18:25:23 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/17 18:36:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ typedef struct s_program
 	t_stack	a;
 	t_stack	b;
 	t_flags	flag;
-	char	**args;
-
+	t_parse	parse;
 }			t_program;
 
 #endif
