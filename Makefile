@@ -39,35 +39,55 @@ re: fclean all
 
 # ─── Git Workflow Alex ────────────────────────────────────────────────────────────
 
-a-pull:
-	git checkout main
-	git pull origin main
-	git checkout alex
-	git merge main
+BRANCH_DEV_A := alex
+BRANCH_MAIN := main
 
-a-push:
-	@read -p "Commit mesaji: " msg; \
+a-check:
+	@test "$$(git branch --show-current)" = "$(BRANCH_DEV_A)" || \
+	(echo "Yanlis branch'tesin"; exit 1)
+
+astat:
+	@git branch --show-current
+	@git status --short
+
+a-pull:
+	git checkout $(BRANCH_MAIN)
+	git pull origin $(BRANCH_MAIN)
+	git checkout $(BRANCH_DEV_A)
+	git merge $(BRANCH_MAIN)
+
+a-push: a-check
+	@AI_COMMIT_ONLY_BRANCH=$(BRANCH_DEV_A) ./scripts/ai-commit.sh
+
+a-push-m: a-check
+	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
+	read -p "Scope (opsiyonel): " scope; \
+	read -p "Mesaj: " subject; \
+	msg=$$type; \
+	if [ -n "$$scope" ]; then msg="$$msg($$scope)"; fi; \
+	msg="$$msg: $$subject"; \
 	git add . && \
-	git commit -m "$$msg" && \
-	git push origin alex
+	if ! git diff --cached --quiet; then \
+		git commit -m "$$msg" && git push origin $(BRANCH_DEV_A); \
+	else \
+		echo "Staged degisiklik yok."; \
+	fi
 
 a-main:
-	git checkout main
-	git pull origin main
-	git merge alex
-	git push origin main
-	git checkout alex
+	git checkout $(BRANCH_MAIN)
+	git pull origin $(BRANCH_MAIN)
+	git merge $(BRANCH_DEV_A)
+	git push origin $(BRANCH_MAIN)
+	git checkout $(BRANCH_DEV_A)
 
 a-pushall: a-push a-main
 
-
 # ─── Git Workflow Meltem ──────────────────────────────────
 
-BRANCH_DEV := meltem
-BRANCH_MAIN := main
+BRANCH_DEV_M := meltem
 
 m-check:
-	@test "$$(git branch --show-current)" = "$(BRANCH_DEV)" || \
+	@test "$$(git branch --show-current)" = "$(BRANCH_DEV_M)" || \
 	(echo "Yanlis branch'tesin"; exit 1)
 
 mstat:
@@ -77,11 +97,11 @@ mstat:
 mg:
 	git checkout $(BRANCH_MAIN)
 	git pull origin $(BRANCH_MAIN)
-	git checkout $(BRANCH_DEV)
+	git checkout $(BRANCH_DEV_M)
 	git merge $(BRANCH_MAIN)
 
 mp: m-check
-	@AI_COMMIT_ONLY_BRANCH=$(BRANCH_DEV) ./scripts/ai-commit.sh
+	@AI_COMMIT_ONLY_BRANCH=$(BRANCH_DEV_M) ./scripts/ai-commit.sh
 
 mp-m: m-check
 	@read -p "Type (feat/fix/refactor/chore/docs/test): " type; \
@@ -92,7 +112,7 @@ mp-m: m-check
 	msg="$$msg: $$subject"; \
 	git add . && \
 	if ! git diff --cached --quiet; then \
-		git commit -m "$$msg" && git push origin $(BRANCH_DEV); \
+		git commit -m "$$msg" && git push origin $(BRANCH_DEV_M); \
 	else \
 		echo "Staged degisiklik yok."; \
 	fi
@@ -100,9 +120,9 @@ mp-m: m-check
 mm:
 	git checkout $(BRANCH_MAIN)
 	git pull origin $(BRANCH_MAIN)
-	git merge $(BRANCH_DEV)
+	git merge $(BRANCH_DEV_M)
 	git push origin $(BRANCH_MAIN)
-	git checkout $(BRANCH_DEV)
+	git checkout $(BRANCH_DEV_M)
 
 ma: mp mm
 
@@ -135,6 +155,6 @@ test-all: re
 	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
 
 .PHONY: all clean fclean re \
-	a-pull a-push a-main a-pushall \
+	a-pull a-push a-main a-pushall a-push-m \
 	m-check mstat mg mp mm ma mp-m \
 	test test-extended test-combo test-combo-deep test-all
