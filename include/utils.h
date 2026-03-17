@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 02:03:05 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/14 04:41:00 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/17 16:27:31 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 
 int		error(void);
-int		is_intrange(long num);
+int		is_intranger_range(long num);
 int		is_numstr(char *str);
 int		has_dup(char **args);
 
