@@ -32,7 +32,6 @@ spinner() {
   local frames=('⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏')
 
   tput civis 2>/dev/null || true
-
   while kill -0 "$pid" 2>/dev/null; do
     for frame in "${frames[@]}"; do
       printf "\r%s Commit mesajı üretiliyor..." "$frame" >&2
@@ -40,9 +39,13 @@ spinner() {
       kill -0 "$pid" 2>/dev/null || break
     done
   done
-
   printf "\r\033[K" >&2
   tput cnorm 2>/dev/null || true
+}
+
+is_blank() {
+  local s="${1-}"
+  [[ -z "$(printf '%s' "$s" | tr -d '[:space:]')" ]]
 }
 
 preview_changes() {
@@ -62,16 +65,17 @@ Write exactly one Conventional Commit message in plain text for the staged chang
 Rules:
 - Format: <type>(<scope>): <subject> or <type>: <subject>
 - Allowed types: feat, fix, refactor, chore, docs, test, perf, ci, build, style, revert
-- Prefer no scope unless it is clearly useful
+- Prefer no scope unless clearly useful
 - lowercase only
 - no emoji
 - no trailing period
+- subject must not be empty
 - keep the full header short
 - output only the commit message, nothing else
 PROMPT
 }
 
-sanitize_raw_text() {
+sanitize_line() {
   perl -CS -Mutf8 -pe '
     s/\e\[[0-9;?]*[ -\/]*[@-~]//g;
     s/\r//g;
@@ -83,16 +87,42 @@ sanitize_raw_text() {
     s/^\s+//;
     s/\s+$//;
     s/\s+/ /g;
+    s/^[-*•]\s*//;
     s/^"(.*)"$/$1/;
     s/^'\''(.*)'\''$/$1/;
+    s/^`(.*)`$/$1/;
   '
+}
+
+fallback_message() {
+  local first
+  first="$(git diff --cached --name-only | head -n 1 || true)"
+
+  case "$first" in
+    *.md|docs/*)
+      printf 'docs: update documentation'
+      ;;
+    Makefile|*.mk|.github/*)
+      printf 'chore: update build workflow'
+      ;;
+    tests/*|test/*|*_test.*|*.spec.*)
+      printf 'test: update test files'
+      ;;
+    "")
+      printf 'chore: update staged files'
+      ;;
+    *)
+      printf 'chore: update staged files'
+      ;;
+  esac
 }
 
 canonicalize_message() {
   local raw="$1"
   local clean type scope subject prefix max allowed
 
-  clean="$(printf '%s' "$raw" | sanitize_raw_text)"
+  clean="$(printf '%s' "$raw" | sanitize_line)"
+  is_blank "$clean" && return 1
 
   if [[ "$clean" =~ ^([a-z]+)(\(([a-z0-9._/-]+)\))?!?:[[:space:]]+(.+)$ ]]; then
     type="${BASH_REMATCH[1]}"
@@ -104,17 +134,8 @@ canonicalize_message() {
     subject="$clean"
   fi
 
-  subject="$(
-    printf '%s' "$subject" | perl -CS -Mutf8 -pe '
-      s/\x{00A0}/ /g;
-      s/[\x{200B}\x{200C}\x{200D}\x{2060}\x{FEFF}]//g;
-      s/[\p{Cc}\p{Cf}]//g;
-      s/^\s+//;
-      s/\s+$//;
-      s/\.$//;
-      s/\s+/ /g;
-    '
-  )"
+  subject="$(printf '%s' "$subject" | sanitize_line | sed 's/\.$//')"
+  is_blank "$subject" && return 1
 
   type="$(printf '%s' "$type" | tr '[:upper:]' '[:lower:]')"
   scope="$(printf '%s' "$scope" | tr '[:upper:]' '[:lower:]')"
@@ -134,18 +155,18 @@ canonicalize_message() {
     allowed=$((max - ${#prefix}))
   fi
 
-  if (( ${#prefix} + ${#subject} > max )); then
-    if [[ -n "$scope" ]]; then
-      scope=""
-      prefix="$type: "
-      allowed=$((max - ${#prefix}))
-    fi
+  if (( ${#prefix} + ${#subject} > max )) && [[ -n "$scope" ]]; then
+    scope=""
+    prefix="$type: "
+    allowed=$((max - ${#prefix}))
   fi
 
   if (( ${#prefix} + ${#subject} > max )); then
     subject="${subject:0:$allowed}"
     subject="$(printf '%s' "$subject" | sed 's/[[:space:]]*$//')"
   fi
+
+  is_blank "$subject" && return 1
 
   if [[ -n "$scope" ]]; then
     printf '%s(%s): %s' "$type" "$scope" "$subject"
@@ -154,57 +175,86 @@ canonicalize_message() {
   fi
 }
 
-generate_message() {
-  local prompt tmpfile pid result
+extract_first_useful_line() {
+  local file="$1"
+  local line cleaned
+
+  while IFS= read -r line; do
+    cleaned="$(printf '%s' "$line" | sanitize_line)"
+    if ! is_blank "$cleaned"; then
+      printf '%s' "$cleaned"
+      return 0
+    fi
+  done < "$file"
+
+  return 1
+}
+
+generate_message_once() {
+  local prompt tmpfile pid raw result
 
   prompt="$(build_prompt)"
   tmpfile="$(mktemp /tmp/ai-commit-output.XXXXXX)"
 
-  if [[ -n "${AI_COMMIT_MODEL:-}" ]]; then
-    (
-      copilot \
-        -p "$prompt" \
-        -s \
-        --no-ask-user \
-        --allow-tool='shell(git:*)' \
-        --model "${AI_COMMIT_MODEL}" \
-        2>/dev/null
-    ) > "$tmpfile" &
-  else
-    (
-      copilot \
-        -p "$prompt" \
-        -s \
-        --no-ask-user \
-        --allow-tool='shell(git:*)' \
-        2>/dev/null
-    ) > "$tmpfile" &
-  fi
-
+  (
+    copilot \
+      -p "$prompt" \
+      -s \
+      --no-ask-user \
+      --allow-tool='shell(git:*)' \
+      2>/dev/null
+  ) > "$tmpfile" &
   pid=$!
+
   spinner "$pid"
-  wait "$pid"
+  wait "$pid" || true
   printf "\r\033[K✓ Commit mesajı hazır.\n" >&2
 
-  result="$(sed '/^[[:space:]]*$/d' "$tmpfile" | head -n 1)"
+  raw="$(extract_first_useful_line "$tmpfile" || true)"
   rm -f "$tmpfile"
 
-  canonicalize_message "$result"
+  is_blank "$raw" && return 1
+
+  result="$(canonicalize_message "$raw" || true)"
+  is_blank "$result" && return 1
+
+  printf '%s' "$result"
+}
+
+generate_message() {
+  local tries=0
+  local msg=""
+
+  while (( tries < 3 )); do
+    tries=$((tries + 1))
+    msg="$(generate_message_once || true)"
+    if ! is_blank "$msg"; then
+      printf '%s' "$msg"
+      return 0
+    fi
+    echo "Uygun mesaj üretilemedi, tekrar deneniyor... ($tries/3)" >&2
+  done
+
+  fallback_message
 }
 
 edit_message() {
   local initial="$1"
-  local tmp edited
+  local tmp edited fixed
 
   tmp="$(mktemp /tmp/ai-commit-msg.XXXXXX)"
   printf "%s\n" "$initial" > "$tmp"
 
   "${EDITOR:-nano}" "$tmp"
 
-  edited="$(tr -d '\r' < "$tmp" | sed '/^[[:space:]]*$/d' | head -n 1)"
+  edited="$(tr -d '\r' < "$tmp" | sed '/^[[:space:]]*$/d' | head -n 1 || true)"
   rm -f "$tmp"
 
-  canonicalize_message "$edited"
+  fixed="$(canonicalize_message "$edited" || true)"
+  if is_blank "$fixed"; then
+    fixed="$(fallback_message)"
+  fi
+  printf '%s' "$fixed"
 }
 
 confirm_loop() {
@@ -212,6 +262,10 @@ confirm_loop() {
   local answer edited
 
   while true; do
+    if is_blank "$msg"; then
+      msg="$(fallback_message)"
+    fi
+
     echo
     echo "Önerilen commit mesajı:"
     echo "  $msg"
@@ -221,22 +275,24 @@ confirm_loop() {
 
     case "${answer:-y}" in
       y|Y)
-        COMMIT_MSG="$(canonicalize_message "$msg")"
+        COMMIT_MSG="$(canonicalize_message "$msg" || true)"
+        if is_blank "${COMMIT_MSG:-}"; then
+          COMMIT_MSG="$(fallback_message)"
+        fi
         return 0
         ;;
       e|E)
-        edited="$(edit_message "$msg")"
-        if [[ -z "$edited" ]]; then
-          echo "Boş mesaj olmaz."
+        edited="$(edit_message "$msg" || true)"
+        if is_blank "$edited"; then
+          msg="$(fallback_message)"
         else
           msg="$edited"
         fi
         ;;
       r|R)
-        msg="$(generate_message)"
-        if [[ -z "$msg" ]]; then
-          echo "Commit mesajı üretilemedi."
-          return 1
+        msg="$(generate_message || true)"
+        if is_blank "$msg"; then
+          msg="$(fallback_message)"
         fi
         ;;
       p|P)
@@ -281,19 +337,16 @@ main() {
 
   preview_changes
 
-  msg="$(generate_message)"
-
-  if [[ -z "$msg" ]]; then
-    echo "Commit mesajı üretilemedi."
-    exit 1
+  msg="$(generate_message || true)"
+  if is_blank "$msg"; then
+    msg="$(fallback_message)"
   fi
 
   COMMIT_MSG=""
   confirm_loop "$msg" || exit 1
 
-  if [[ -z "$COMMIT_MSG" ]]; then
-    echo "Boş commit mesajı."
-    exit 1
+  if is_blank "${COMMIT_MSG:-}"; then
+    COMMIT_MSG="$(fallback_message)"
   fi
 
   echo
