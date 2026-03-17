@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/17 14:31:13 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/17 16:34:44 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int	error(void)
 	exit(1);
 }
 
-int	is_intrager_range(long num)
+int	is_intranger_range(long num)
 {
 	if (num >= -2147483648 && num <= 2147483647)
 		return (1);
 	return (0);
 }
 
-int	is_number(char *str)
+int	is_numstr(char *str)
 {
 	int	i;
 
