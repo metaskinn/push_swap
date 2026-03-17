@@ -36,7 +36,7 @@
 
 ## 5. Operation motoru
 ### Sessiz işlemler
-- [ ] `swap_stack`
+- [ ] `swap_stack`   #bugunkü hedefim#
 - [ ] `push_stack`
 - [ ] `rotate_stack`
 - [ ] `reverse_rotate_stack`
