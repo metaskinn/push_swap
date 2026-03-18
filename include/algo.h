@@ -6,26 +6,6 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 18:23:10 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:49:20 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef ALGO_H
-# define ALGO_H
-
-typedef enum e_op
-{
-	OP_SA,
-	OP_SB,
-	OP_SS,
-	OP_PA,
-	OP_PB,
-	OP_RA,
-	OP_RB,
-	OP_RR,
-	OP_RRA,
-	OP_RRB,
-	OP_RRR
-}			t_op;
-
-#endif
