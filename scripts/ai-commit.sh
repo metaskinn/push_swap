@@ -59,6 +59,9 @@ preview_changes() {
 }
 
 build_prompt() {
+  local context="$1"
+  local preferred_type="$2"
+
   cat <<'PROMPT'
 Write exactly one Conventional Commit message in plain text for the staged changes.
 
@@ -73,6 +76,65 @@ Rules:
 - keep the full header short
 - output only the commit message, nothing else
 PROMPT
+
+  printf '\nPreferred type: %s\n' "$preferred_type"
+  printf '\nStaged context:\n%s\n' "$context"
+}
+
+build_staged_context() {
+  local names stats patch
+
+  names="$(git diff --cached --name-status 2>/dev/null | head -n 80 || true)"
+  stats="$(git diff --cached --stat=120,80 2>/dev/null | head -n 80 || true)"
+  patch="$(git diff --cached --unified=0 --no-color 2>/dev/null | head -n 240 || true)"
+
+  cat <<EOF
+FILES:
+${names:-<none>}
+
+STATS:
+${stats:-<none>}
+
+PATCH_SNIPPET:
+${patch:-<none>}
+EOF
+}
+
+infer_type_from_staged() {
+  local names patch
+
+  names="$(git diff --cached --name-only 2>/dev/null || true)"
+  patch="$(git diff --cached --unified=0 --no-color 2>/dev/null | head -n 300 || true)"
+
+  if printf '%s\n' "$names" | grep -Eq '.'; then
+    if ! printf '%s\n' "$names" | grep -Eqv '\.md$|^docs/|README(\.md)?$'; then
+      printf 'docs'
+      return 0
+    fi
+    if ! printf '%s\n' "$names" | grep -Eqv '^tests?/|_test\.|\.spec\.|_spec\.'; then
+      printf 'test'
+      return 0
+    fi
+    if ! printf '%s\n' "$names" | grep -Eqv '^\.github/|\.gitlab-ci\.yml$|^\.circleci/'; then
+      printf 'ci'
+      return 0
+    fi
+    if ! printf '%s\n' "$names" | grep -Eqv '^Makefile$|\.mk$|^CMakeLists\.txt$|^cmake/|^Dockerfile'; then
+      printf 'build'
+      return 0
+    fi
+  fi
+
+  if printf '%s\n' "$patch" | grep -Eiq 'fix|bug|error|crash|overflow|underflow|null|segfault'; then
+    printf 'fix'
+    return 0
+  fi
+  if printf '%s\n' "$patch" | grep -Eiq 'refactor|cleanup|rename|extract|simplif|reorganize'; then
+    printf 'refactor'
+    return 0
+  fi
+
+  printf 'chore'
 }
 
 sanitize_line() {
@@ -119,7 +181,9 @@ fallback_message() {
 
 canonicalize_message() {
   local raw="$1"
+  local preferred_type="${2:-chore}"
   local clean type scope subject prefix max allowed
+  local allowed_types
 
   clean="$(printf '%s' "$raw" | sanitize_line)"
   is_blank "$clean" && return 1
@@ -129,7 +193,7 @@ canonicalize_message() {
     scope="${BASH_REMATCH[3]:-}"
     subject="${BASH_REMATCH[4]}"
   else
-    type="chore"
+    type="$preferred_type"
     scope=""
     subject="$clean"
   fi
@@ -139,6 +203,13 @@ canonicalize_message() {
 
   type="$(printf '%s' "$type" | tr '[:upper:]' '[:lower:]')"
   scope="$(printf '%s' "$scope" | tr '[:upper:]' '[:lower:]')"
+  allowed_types=" feat fix refactor chore docs test perf ci build style revert "
+  if [[ "$allowed_types" != *" $type "* ]]; then
+    type="$preferred_type"
+  fi
+  if [[ "$allowed_types" != *" $type "* ]]; then
+    type="chore"
+  fi
 
   if [[ -n "$scope" ]]; then
     prefix="$type($scope): "
@@ -178,22 +249,36 @@ canonicalize_message() {
 extract_first_useful_line() {
   local file="$1"
   local line cleaned
+  local fallback_line=""
 
   while IFS= read -r line; do
     cleaned="$(printf '%s' "$line" | sanitize_line)"
-    if ! is_blank "$cleaned"; then
+    if is_blank "$cleaned"; then
+      continue
+    fi
+    if [[ "$cleaned" =~ ^([a-z]+)(\(([a-z0-9._/-]+)\))?!?:[[:space:]]+.+$ ]]; then
       printf '%s' "$cleaned"
       return 0
     fi
+    if [[ -z "$fallback_line" ]]; then
+      fallback_line="$cleaned"
+    fi
   done < "$file"
+
+  if [[ -n "$fallback_line" ]]; then
+    printf '%s' "$fallback_line"
+    return 0
+  fi
 
   return 1
 }
 
 generate_message_once() {
-  local prompt tmpfile pid raw result
+  local prompt context preferred_type tmpfile pid raw result
 
-  prompt="$(build_prompt)"
+  context="$(build_staged_context)"
+  preferred_type="$(infer_type_from_staged)"
+  prompt="$(build_prompt "$context" "$preferred_type")"
   tmpfile="$(mktemp /tmp/ai-commit-output.XXXXXX)"
 
   (
@@ -215,7 +300,7 @@ generate_message_once() {
 
   is_blank "$raw" && return 1
 
-  result="$(canonicalize_message "$raw" || true)"
+  result="$(canonicalize_message "$raw" "$preferred_type" || true)"
   is_blank "$result" && return 1
 
   printf '%s' "$result"
@@ -240,6 +325,7 @@ generate_message() {
 
 edit_message() {
   local initial="$1"
+  local preferred_type
   local tmp edited fixed
 
   tmp="$(mktemp /tmp/ai-commit-msg.XXXXXX)"
@@ -250,7 +336,8 @@ edit_message() {
   edited="$(tr -d '\r' < "$tmp" | sed '/^[[:space:]]*$/d' | head -n 1 || true)"
   rm -f "$tmp"
 
-  fixed="$(canonicalize_message "$edited" || true)"
+  preferred_type="$(infer_type_from_staged)"
+  fixed="$(canonicalize_message "$edited" "$preferred_type" || true)"
   if is_blank "$fixed"; then
     fixed="$(fallback_message)"
   fi
@@ -259,7 +346,10 @@ edit_message() {
 
 confirm_loop() {
   local msg="$1"
+  local preferred_type
   local answer edited
+
+  preferred_type="$(infer_type_from_staged)"
 
   while true; do
     if is_blank "$msg"; then
@@ -275,7 +365,7 @@ confirm_loop() {
 
     case "${answer:-y}" in
       y|Y)
-        COMMIT_MSG="$(canonicalize_message "$msg" || true)"
+        COMMIT_MSG="$(canonicalize_message "$msg" "$preferred_type" || true)"
         if is_blank "${COMMIT_MSG:-}"; then
           COMMIT_MSG="$(fallback_message)"
         fi
