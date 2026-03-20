@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:22:12 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:30:14 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+# include "parser.h"
+# include "utils.h"
 
 static long	parse_number(char *str, int *i, int sign)
 {

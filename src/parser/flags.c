@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 18:53:47 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:30:21 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+# include "parser.h"
+# include "utils.h"
 
 void	default_flag(t_flags *flag)
 {

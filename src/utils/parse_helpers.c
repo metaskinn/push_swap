@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:27:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 19:54:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:32:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+# include "parser.h"
+# include "utils.h"
 
 int	has_wspace_char(char *s)
 {

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:58:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:48:51 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:09:43 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
-void				stack_add_back(t_stack *stack, t_node *node);
-void				stack_build(t_stack *stack, char **args);
+/* stack.c */
 void				create_stack(t_stack *stack);
 void				clear_stack(t_stack *stack);
 t_node				*node_new(int value);
+void				stack_add_back(t_stack *stack, t_node *node);
+void				stack_build(t_stack *stack, char **args);
 
 #endif
