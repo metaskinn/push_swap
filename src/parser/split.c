@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:28:38 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:54:31 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static int	get_wordcount(char const *s)
 	int	wordcount;
 
 	wordcount = 0;
-	while (*s)// Count transitions to nonwhitespace
+	// count whitespace -> word transitions
+	while (*s)
 	{
 		while (*s && is_wspace(*s) == 1)
 			s++;
@@ -68,7 +69,7 @@ char	**split(char *s)
 	if (!ptr)
 		return (NULL);
 	while (i < wordcount)
-	{// Skip leading whitespace
+	{ // skip leading spaces before token start
 		while (is_wspace(*s))
 			s++;
 		j = 0;

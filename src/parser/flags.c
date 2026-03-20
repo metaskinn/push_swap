@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 18:24:09 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:53:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	are_flags(char *arg)
 
 static int	pre_algo(t_flags *flag, t_which_algo algo)
 {
-	if (flag->algo_did) // so it never re erter if already algo is did
+	// allow selecting algorithm only once
+	if (flag->algo_did)
 		return (1);
 	flag->which_algo = algo;
 	flag->algo_did = 1;
@@ -49,14 +50,14 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	// after a selector already sorted dont use extra flags like that
+	// reject any extra flag after algo selection
 	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
 				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
 			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,
 				"--adaptive") == 0))
-		return (1); // if algo ar did flag is bench --like extra
+		return (1);
 	else if (mt_strcmp(arg, "--bench") == 0)
-		flag->bench = 1; // if bench is didnot
+		flag->bench = 1;
 	else if (mt_strcmp(arg, "--simple") == 0)
 		return (pre_algo(flag, SIMPLE));
 	else if (mt_strcmp(arg, "--medium") == 0)
@@ -78,11 +79,12 @@ int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 	while (i < argc)
 	{
 		if (!are_flags(argv[i]))
-			break ;// flag is befr num so if non flag break start num
+			break ;
 		if (apply_flag(flag, argv[i]))
-			return (1);// if flag wrong
+			return (1);
 		i++;
 	}
-	*start = i; // start num index
+	// first nonflag argument index
+	*start = i;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:21 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:33:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:53:38 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	sa(t_stack *a, t_flags *flag)
 
 	if (!a || a->size < 2)
 		return ;
+	// swap first two nodes
 	first = a->top;
 	second = first->next;
 	first->next = second->next;
@@ -40,6 +41,7 @@ void	sb(t_stack *b, t_flags *flag)
 
 	if (!b || b->size < 2)
 		return ;
+	// swap first two nodes
 	first = b->top;
 	second = first->next;
 	first->next = second->next;
@@ -60,6 +62,7 @@ static int	ss_one_stack(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return (0);
+	// shared swap logic for ss
 	first = stack->top;
 	second = first->next;
 	first->next = second->next;
@@ -73,7 +76,7 @@ void	ss(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
-	// Apply both side by side then print a test copy to view any changes
+	// swap both stacks print once as ss
 	changed_a = ss_one_stack(a);
 	changed_b = ss_one_stack(b);
 	if ((changed_a || changed_b) && flag)
