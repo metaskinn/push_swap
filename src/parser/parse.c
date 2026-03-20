@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 19:47:24 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:32:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+# include "parser.h"
+# include "utils.h"
 
 static int	parse_joined_args(int argc, char **argv, int start, t_parse *parse)
 {

@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 04:33:54 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:32:42 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+# include "utils.h"
 
 void	*ft_memset(void *b, int c, size_t n)
 {

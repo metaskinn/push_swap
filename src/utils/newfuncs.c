@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:35:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 17:22:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:32:39 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+# include "utils.h"
 
 int	mt_strcmp(const char *s1, const char *s2)
 {
