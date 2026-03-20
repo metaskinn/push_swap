@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:44:41 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:46:17 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ typedef struct s_parse
 }					t_parse;
 
 void				check_numbers(char **args);
+int					has_wspace_char(char *s);
+int					is_empty_token(char *s);
+int					has_edge_wspace(char *s);
+char				*join_args(char **argv, int start, int argc);
+int					check_argv_wspace(char **argv, int start, int argc,
+						int *wspace_count, int *wspace_index);
 int					read_args(int argc, char **argv, t_flags *flag,
 						t_parse *parse);
-
 #endif

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:52:44 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:37:36 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rra(t_stack *a, t_flags *flag)
 	if (!a || a->size < 2)
 		return ;
 	prev = NULL;
-	// walk to last node and its previous
+	// son dugum ve oncesini bul
 	last = a->top;
 	while (last->next)
 	{
@@ -29,7 +29,7 @@ void	rra(t_stack *a, t_flags *flag)
 		last = last->next;
 	}
 	prev->next = NULL;
-	// move old tail to top
+	// sonu basa al
 	last->next = a->top;
 	a->top = last;
 	if (flag)
@@ -48,7 +48,7 @@ void	rrb(t_stack *b, t_flags *flag)
 	if (!b || b->size < 2)
 		return ;
 	prev = NULL;
-	// walk to last node and its previous
+	// son dugum ve oncesini bul
 	last = b->top;
 	while (last->next)
 	{
@@ -56,7 +56,7 @@ void	rrb(t_stack *b, t_flags *flag)
 		last = last->next;
 	}
 	prev->next = NULL;
-	// move old tail to top
+	// sonu basa al
 	last->next = b->top;
 	b->top = last;
 	if (flag)
@@ -75,7 +75,7 @@ static int	rrr_one_stack(t_stack *stack)
 	if (!stack || stack->size < 2)
 		return (0);
 	prev = NULL;
-	// same reversev rotate logic for shared rrr helper
+	// rrr icin ayni reverse rotate mantigi
 	last = stack->top;
 	while (last->next)
 	{
@@ -93,7 +93,7 @@ void	rrr(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
-	// rr both stacks print once as rrr
+	// iki stack'i ters cevir, bir kez rrr yaz
 	changed_a = rrr_one_stack(a);
 	changed_b = rrr_one_stack(b);
 	if ((changed_a || changed_b) && flag)

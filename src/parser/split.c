@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:54:31 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:53:27 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	get_wordcount(char const *s)
 	int	wordcount;
 
 	wordcount = 0;
-	// count whitespace -> word transitions
+	// bosluktan kelimeye gecis say
 	while (*s)
 	{
 		while (*s && is_wspace(*s) == 1)
@@ -54,11 +54,22 @@ void	free_split(char **arr)
 	free(arr);
 }
 
+static char	*next_token(char **s)
+{
+	int	len;
+
+	while (is_wspace(**s))
+		(*s)++;
+	len = 0;
+	while ((*s)[len] && !is_wspace((*s)[len]))
+		len++;
+	return (ft_substr(*s, 0, len));
+}
+
 char	**split(char *s)
 {
 	int		wordcount;
 	int		i;
-	int		j;
 	char	**ptr;
 
 	if (!s)
@@ -69,16 +80,11 @@ char	**split(char *s)
 	if (!ptr)
 		return (NULL);
 	while (i < wordcount)
-	{ // skip leading spaces before token start
-		while (is_wspace(*s))
-			s++;
-		j = 0;
-		while (is_wspace(s[j]) == 0 && s[j] != '\0')
-			j++;
-		ptr[i++] = ft_substr(s, 0, j);
+	{
+		ptr[i++] = next_token(&s);
 		if (!ptr[i - 1])
 			return (free_split(ptr), NULL);
-		s = s + j;
+		s += ft_strlen(ptr[i - 1]);
 	}
 	return (ptr);
 }
