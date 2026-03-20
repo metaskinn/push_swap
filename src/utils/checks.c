@@ -6,13 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 19:37:46 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:32:34 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
-#include <unistd.h>
+# include "parser.h"
+# include "utils.h"
 
 int	error(void)
 {

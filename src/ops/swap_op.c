@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:21 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 19:37:41 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:30:09 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ops.h"
-#include <unistd.h>
+# include "ops.h"
 
 void	sa(t_stack *a, t_flags *flag)
 {
