@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 14:37:27 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:01:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ void	check_numbers(char **args)
 			error();
 		i++;
 	}
-	has_dup(args);
+	if (has_dup(args))
+		error();
 }
 
 int	read_args(int argc, char **argv, t_flags *flag, t_parse *parse)
 {
 	int	start;
 
+	parse->args = NULL;
+	parse->must_free = 0;
 	if (argc < 2)
 		return (0);
 	default_flag(flag);
