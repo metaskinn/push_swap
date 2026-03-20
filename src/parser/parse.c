@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:01:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:32:42 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int	read_args(int argc, char **argv, t_flags *flag, t_parse *parse)
 		return (0);
 	if (argc - start == 1)
 	{
-		parse->args = split(argv[start]);
+		parse->args = split(argv[start]);// Single string input need to split it
 		if (!parse->args || !(parse->args[0]))
 			error();
 		parse->must_free = 1;
 	}
 	else
-	{
+	{// Multiarg input already comes tokenized from argv
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}

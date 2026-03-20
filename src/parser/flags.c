@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 17:25:55 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:24:09 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
+	// after a selector already sorted dont use extra flags like that
 	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
 				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
 			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,

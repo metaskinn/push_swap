@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:19:26 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:33:28 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	pa(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || b->size == 0)
 		return ;
+	// Remove top node from b and move it to a
 	node = b->top;
 	b->top = node->next;
 	b->size--;
@@ -39,6 +40,7 @@ void	pb(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || a->size == 0)
 		return ;
+	// Remove top node from a and move it to b
 	node = a->top;
 	a->top = node->next;
 	a->size--;

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:19:32 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:33:19 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	rrr(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
+	// Reverse-rotate both stacks emit rrr op
 	changed_a = rrr_one_stack(a);
 	changed_b = rrr_one_stack(b);
 	if ((changed_a || changed_b) && flag)

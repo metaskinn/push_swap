@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:21:30 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:29:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	has_dup(char **args)
 	long	b;
 
 	i = 0;
+	// O(n²) is fine for push_swap input sizes
 	while (args[i])
 	{
 		a = ft_atol(args[i]);
