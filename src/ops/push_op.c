@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 19:37:25 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:30:01 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ops.h"
-#include <unistd.h>
+# include "ops.h"
 
 void	pa(t_stack *a, t_stack *b, t_flags *flag)
 {
