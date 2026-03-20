@@ -1,20 +1,31 @@
 {
-
-  "editor.detectIndentation": false,
-  "editor.insertSpaces": false,
-  "editor.tabSize": 4,
-  "editor.rulers": [80],
-
-  "files.associations": {
-    "*.h": "c"
-  },
-  "[c]": {
-    "editor.insertSpaces": false,
-    "editor.tabSize": 4,
-  },
-  "[makefile]": {
-    "editor.insertSpaces": false,
-    "editor.tabSize": 4
-},
-"makefile.configureOnOpen": false
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.rulers": [
+		80
+	],
+	"files.associations": {
+		"*.h": "c"
+	},
+	"C_Cpp.default.compilerPath": "/usr/bin/cc",
+	"C_Cpp.default.includePath": [
+		"${workspaceFolder}/include",
+		"${workspaceFolder}/src",
+		"${workspaceFolder}/src/**"
+	],
+	"clangd.fallbackFlags": [
+		"-I${workspaceFolder}/include",
+		"-I${workspaceFolder}/src",
+		"-std=c11"
+	],
+	"[c]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4,
+	},
+	"[makefile]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4
+	},
+	"makefile.configureOnOpen": false
 }
