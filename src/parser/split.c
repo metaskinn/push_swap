@@ -6,11 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:58 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/14 01:32:50 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 14:24:08 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "parser.h"
+#include "utils.h"
 
 int	is_wspace(char c)
 {
