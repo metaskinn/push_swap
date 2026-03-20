@@ -6,6 +6,9 @@
 		80
 	],
 	"files.associations": {
+		"include/*.h": "c",
+		"include/**/*.h": "c",
+		"include/bench.h": "c",
 		"*.h": "c"
 	},
 	"C_Cpp.default.compilerPath": "/usr/bin/cc",
@@ -15,9 +18,9 @@
 		"${workspaceFolder}/src/**"
 	],
 	"clangd.fallbackFlags": [
+		"-xc",
 		"-I${workspaceFolder}/include",
-		"-I${workspaceFolder}/src",
-		"-std=c11"
+		"-I${workspaceFolder}/src"
 	],
 	"[c]": {
 		"editor.insertSpaces": false,

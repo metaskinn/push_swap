@@ -9,7 +9,6 @@
 				"${workspaceFolder}/src",
 				"${workspaceFolder}/src/**"
 			],
-			"cStandard": "c11",
 			"intelliSenseMode": "macos-clang-arm64"
 		},
 		{
@@ -21,7 +20,6 @@
 				"${workspaceFolder}/src",
 				"${workspaceFolder}/src/**"
 			],
-			"cStandard": "c11",
 			"intelliSenseMode": "linux-gcc-x64"
 		}
 	],
