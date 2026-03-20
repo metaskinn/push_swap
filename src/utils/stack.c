@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 17:22:10 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:32:08 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	stack_build(t_stack *stack, char **args)
 	index = 0;
 	while (args[index] != NULL)
 	{
+		// If allocation fail, free partial stack before exiting with error
 		node = node_new((int)ft_atol(args[index]));
 		if (node == NULL)
 		{

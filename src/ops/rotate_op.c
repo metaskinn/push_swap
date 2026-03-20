@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:16 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:19:40 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:33:12 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	rr(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
+	// Rotate both stacks in reverse create one line rr output
 	changed_a = rr_one_stack(a);
 	changed_b = rr_one_stack(b);
 	if ((changed_a || changed_b) && flag)
