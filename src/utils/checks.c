@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/17 16:34:44 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:43:21 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
 #include "parser.h"
+#include "utils.h"
 #include <unistd.h>
 
 int	error(void)
@@ -47,10 +47,10 @@ int	is_numstr(char *str)
 
 int	has_dup(char **args)
 {
-	int		i;
-	int		j;
-	long	a;
-	long	b;
+	int i;
+	int j;
+	long a;
+	long b;
 
 	i = 0;
 	while (args[i])
@@ -67,4 +67,4 @@ int	has_dup(char **args)
 		i++;
 	}
 	return (0);
-}// eksikk
+} // eksikk

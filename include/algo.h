@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/18 11:50:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:42:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ typedef enum e_op
 	OP_RRA,
 	OP_RRB,
 	OP_RRR
-}			t_op;
+}	t_op;
 
 #endif

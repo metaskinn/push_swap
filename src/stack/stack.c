@@ -6,11 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/15 17:42:07 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:52:52 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "parser.h"
-#include "stack.h"
-#include "utils.h"
 

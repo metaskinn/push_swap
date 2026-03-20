@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 17:58:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:44:30 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0
-			|| mt_strcmp(arg, "--simple") == 0
-			|| mt_strcmp(arg, "--medium") == 0
-			|| mt_strcmp(arg, "--complex") == 0
-			|| mt_strcmp(arg, "--adaptive") == 0))
+	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
+				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
+			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,
+				"--adaptive") == 0))
 		return (1); // if algo ar did flag is bench --like extra
 	else if (mt_strcmp(arg, "--bench") == 0)
 		flag->bench = 1; // if bench is didnot
@@ -80,7 +79,6 @@ int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 			return (1); // if flag wrong
 		i++;
 	}
-	*start = i;// start num index
+	*start = i; // start num index
 	return (0);
 }
-
