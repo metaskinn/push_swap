@@ -86,22 +86,21 @@ char	*join_args(char **argv, int start, int argc)
 	return (joined);
 }
 
-int	check_argv_wspace(char **argv, int start, int argc, int *wspace_count,
-		int *wspace_index)
+int	check_argv_wspace(char **argv, int start, int argc, t_wspace_scan *scan)
 {
 	int	i;
 
 	i = start;
-	*wspace_count = 0;
-	*wspace_index = -1;
+	scan->count = 0;
+	scan->index = -1;
 	while (i < argc)
 	{
 		if (is_empty_token(argv[i]))
 			return (1);
 		if (has_wspace_char(argv[i]))
 		{
-			(*wspace_count)++;
-			*wspace_index = i;
+			scan->count++;
+			scan->index = i;
 		}
 		i++;
 	}

@@ -39,17 +39,16 @@ static int	parse_single_arg(char **argv, int start, t_parse *parse)
 
 static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 {
-	int	wspace_count;
-	int	wspace_index;
+	t_wspace_scan	scan;
 
-	if (check_argv_wspace(argv, start, argc, &wspace_count, &wspace_index))
+	if (check_argv_wspace(argv, start, argc, &scan))
 		error();
-	if (wspace_count == 0)
+	if (scan.count == 0)
 	{
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}
-	else if (wspace_count == 1 && !has_edge_wspace(argv[wspace_index]))
+	else if (scan.count == 1 && !has_edge_wspace(argv[scan.index]))
 		parse_joined_args(argc, argv, start, parse);
 	else
 		error();
