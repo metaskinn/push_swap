@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:45:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:02:15 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	default_flag(t_flags *flag)
 	flag->which_algo = ADAPTIVE;
 	flag->bench = 0;
 	flag->algo_did = 0;
+	flag->total_ops = 0;
+	flag->enabled = 1;
+	flag->disorder = 0;
 }
 
 int	are_flags(char *arg)
