@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:15:53 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:19:32 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
+#include "ops.h"
 #include <unistd.h>
 
 void	rra(t_stack *a, t_flags *flag)
