@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:33:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:51:53 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ void	pa(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || b->size == 0)
 		return ;
-	// Remove top node from b and move it to a
+	// move top of b to top of a
 	node = b->top;
+	// ayir from source stack
 	b->top = node->next;
 	b->size--;
+	// ekle as new top of destination
 	node->next = a->top;
 	a->top = node;
 	a->size++;
@@ -40,10 +42,12 @@ void	pb(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || a->size == 0)
 		return ;
-	// Remove top node from a and move it to b
+	// move top of a to top of b
 	node = a->top;
+	// ayir from source stack
 	a->top = node->next;
 	a->size--;
+	// ekle as new top of destination
 	node->next = b->top;
 	b->top = node;
 	b->size++;
