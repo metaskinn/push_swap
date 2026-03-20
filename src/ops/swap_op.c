@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:21 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 17:17:17 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:19:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
+#include "ops.h"
 #include <unistd.h>
 
 void	sa(t_stack *a, t_flags *flag)
