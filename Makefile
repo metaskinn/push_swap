@@ -12,11 +12,19 @@ SRCS = \
 	${SRC_DIR}/parser/split.c \
 	${SRC_DIR}/parser/parse.c \
 	${SRC_DIR}/parser/atol.c \
-	${SRC_DIR}/bench/flags.c \
-	${SRC_DIR}/stack/stack.c \
+	${SRC_DIR}/parser/flags.c \
+	${SRC_DIR}/utils/stack.c \
 	${SRC_DIR}/utils/oldfuncs.c \
 	${SRC_DIR}/utils/newfuncs.c \
-	${SRC_DIR}/utils/checks.c
+	${SRC_DIR}/utils/checks.c \
+	${SRC_DIR}/ops/push_op.c \
+	${SRC_DIR}/ops/reverse_rotate_op.c \
+	${SRC_DIR}/ops/rotate_op.c \
+	${SRC_DIR}/ops/swap_op.c \
+	${SRC_DIR}/algorithms/simple/file.c \
+	${SRC_DIR}/algorithms/medium/file.c \
+	${SRC_DIR}/algorithms/complex/file.c \
+	${SRC_DIR}/algorithms/adaptive/file.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 02:03:05 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/17 16:27:31 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:48:51 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
