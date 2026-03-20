@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:46:38 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:22:10 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
 #include "parser.h"
+#include "stack.h"
 #include "utils.h"
 
 void	create_stack(t_stack *stack)

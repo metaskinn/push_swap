@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 17:02:15 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:25:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 	while (i < argc)
 	{
 		if (!are_flags(argv[i]))
-			break ; // flag is befr num so if non flag break start num
+			break ;// flag is befr num so if non flag break start num
 		if (apply_flag(flag, argv[i]))
-			return (1); // if flag wrong
+			return (1);// if flag wrong
 		i++;
 	}
 	*start = i; // start num index

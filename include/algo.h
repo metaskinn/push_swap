@@ -6,15 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 17:18:16 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:20:36 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALGO_H
 # define ALGO_H
-
-# include "parser.h"
-# include "stack.h"
-
 
 #endif
