@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 16:51:50 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:06:18 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "parser.h"
 # include "stack.h"
-// # include "utils.h"
-// # include "ops.h"
 # include <stdlib.h>
 # include <unistd.h>
 

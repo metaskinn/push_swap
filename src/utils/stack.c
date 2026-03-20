@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 18:54:43 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:37:45 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	create_stack(t_stack *stack)
 {
-	// start with an empty linked list stack
+	// stack bos baslasin
 	stack->top = NULL;
 	stack->size = 0;
 }
@@ -70,7 +70,7 @@ void	stack_build(t_stack *stack, char **args)
 	index = 0;
 	while (args[index] != NULL)
 	{
-		// on alloc failure clean partial stack then abort
+		// alloc patlarsa parcali stack'i temizle
 		node = node_new((int)ft_atol(args[index]));
 		if (node == NULL)
 		{

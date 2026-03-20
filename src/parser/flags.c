@@ -40,7 +40,7 @@ int	are_flags(char *arg)
 
 static int	pre_algo(t_flags *flag, t_which_algo algo)
 {
-	// allow selecting algorithm only once
+	// algo bir kez secilsin
 	if (flag->algo_did)
 		return (1);
 	flag->which_algo = algo;
@@ -50,7 +50,7 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	// reject any extra flag after algo selection
+	// algo seciminden sonra ek flag alma
 	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
 				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
 			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,
@@ -84,7 +84,7 @@ int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 			return (1);
 		i++;
 	}
-	// first nonflag argument index
+	// ilk flag olmayan arg indisi
 	*start = i;
 	return (0);
 }

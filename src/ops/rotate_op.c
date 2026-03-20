@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:16 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 18:53:18 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:37:33 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ra(t_stack *a, t_flags *flag)
 
 	if (!a || a->size < 2)
 		return ;
-	// take current top node
+	// ustteki dugumu al
 	first = a->top;
 	a->top = first->next;
 	first->next = NULL;
-	// ekle old top to the tail
+	// sona ekle
 	last = a->top;
 	while (last->next)
 		last = last->next;
@@ -44,11 +44,11 @@ void	rb(t_stack *b, t_flags *flag)
 
 	if (!b || b->size < 2)
 		return ;
-	// take current top node
+	// ustteki dugumu al
 	first = b->top;
 	b->top = first->next;
 	first->next = NULL;
-	// ekle old top to the tail
+	// sona ekle
 	last = b->top;
 	while (last->next)
 		last = last->next;
@@ -68,7 +68,7 @@ static int	rr_one_stack(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return (0);
-	// same rotate logic for shared rr helper
+	// rr icin ayni rotate mantigi
 	first = stack->top;
 	stack->top = first->next;
 	first->next = NULL;
@@ -84,7 +84,7 @@ void	rr(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
-	// rotate both stacks print once as rr
+	// iki stack'i cevir, bir kez rr yaz
 	changed_a = rr_one_stack(a);
 	changed_b = rr_one_stack(b);
 	if ((changed_a || changed_b) && flag)
