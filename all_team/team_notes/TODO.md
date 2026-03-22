@@ -25,10 +25,12 @@
 - [x] `stack a` oluştur
 - [x] Hatalarda sadece `Error\n` yazdır
 
+
+int int int tring case i handella!!!!
+
 ## 4. Stack katmanı
-- [ ] `node_new`
-- [ ] `node_add_back`
-- [ ] `node_add_front`
+- [x] `node_new`
+- [x] `node_add_back`
 - [ ] `stack_clear`
 - [ ] `stack_is_sorted`
 - [ ] `find_min_pos`

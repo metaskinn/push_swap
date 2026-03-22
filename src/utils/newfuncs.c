@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newfuncs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:35:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/15 17:35:08 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/18 02:10:16 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
