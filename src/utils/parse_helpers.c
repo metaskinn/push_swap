@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:27:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:32:47 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/22 14:56:21 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-# include "utils.h"
+#include "parser.h"
+#include "utils.h"
 
 int	has_wspace_char(char *s)
 {
@@ -86,21 +86,21 @@ char	*join_args(char **argv, int start, int argc)
 	return (joined);
 }
 
-int	check_argv_wspace(char **argv, int start, int argc, t_wspace_scan *scan)
+int	check_argv_wspace(char **argv, int start, int argc, int *count, int *index)
 {
 	int	i;
 
 	i = start;
-	scan->count = 0;
-	scan->index = -1;
+	*count = 0;
+	*index = -1;
 	while (i < argc)
 	{
 		if (is_empty_token(argv[i]))
 			return (1);
 		if (has_wspace_char(argv[i]))
 		{
-			scan->count++;
-			scan->index = i;
+			(*count)++;
+			*index = i;
 		}
 		i++;
 	}

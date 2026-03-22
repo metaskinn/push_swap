@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:32:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/22 14:56:41 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-# include "utils.h"
+#include "parser.h"
+#include "utils.h"
 
 static int	parse_joined_args(int argc, char **argv, int start, t_parse *parse)
 {
@@ -39,16 +39,17 @@ static int	parse_single_arg(char **argv, int start, t_parse *parse)
 
 static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 {
-	t_wspace_scan	scan;
+	int	count;
+	int	index;
 
-	if (check_argv_wspace(argv, start, argc, &scan))
+	if (check_argv_wspace(argv, start, argc, &count, &index))
 		error();
-	if (scan.count == 0)
+	if (count == 0)
 	{
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}
-	else if (scan.count == 1 && !has_edge_wspace(argv[scan.index]))
+	else if (count == 1 && !has_edge_wspace(argv[index]))
 		parse_joined_args(argc, argv, start, parse);
 	else
 		error();
