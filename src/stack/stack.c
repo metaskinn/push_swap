@@ -3,14 +3,9 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/15 17:42:07 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/22 14:48:46 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "parser.h"
-#include "stack.h"
-#include "utils.h"
-
