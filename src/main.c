@@ -6,11 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 01:10:20 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 02:54:57 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "algo.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)
