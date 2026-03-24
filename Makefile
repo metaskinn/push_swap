@@ -22,10 +22,11 @@ SRCS = \
 	${SRC_DIR}/ops/reverse_rotate_op.c \
 	${SRC_DIR}/ops/rotate_op.c \
 	${SRC_DIR}/ops/swap_op.c \
-	${SRC_DIR}/algorithms/simple/file.c \
-	${SRC_DIR}/algorithms/medium/file.c \
-	${SRC_DIR}/algorithms/complex/file.c \
-	${SRC_DIR}/algorithms/adaptive/file.c
+	${SRC_DIR}/algorithms/disorder.c \
+	${SRC_DIR}/algorithms/simple/simple.c \
+	${SRC_DIR}/algorithms/medium/medium.c \
+	${SRC_DIR}/algorithms/complex/complex.c \
+	${SRC_DIR}/algorithms/adaptive/adaptive.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

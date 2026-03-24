@@ -6,13 +6,14 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:32:53 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:26:18 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "parser.h"
 # include "stack.h"
 # include "utils.h"
+
 
 void	create_stack(t_stack *stack)
 {
@@ -59,7 +60,7 @@ void	stack_add_back(t_stack *stack, t_node *node)
 			last = last->next;
 		last->next = node;
 	}
-	stack->size += 1;
+	stack->size++;
 }
 
 void	stack_build(t_stack *stack, char **args)
