@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:58:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:09:43 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:34:55 by asobolev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 typedef struct s_node
 {
 	int				value;
+	int 			indx;
 	struct s_node	*next;
+	struct s_node	*prev;
 }					t_node;
 
 typedef struct s_stack
 {
-	t_node			*top;
 	int				size;
+	t_node			*top;
+	t_node          *bottom;	
 }					t_stack;
 
 /* stack.c */
