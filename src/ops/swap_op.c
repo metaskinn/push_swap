@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:21 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:30:09 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:48:13 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ops.h"
+#include "ops.h"
 
 void	sa(t_stack *a, t_flags *flag)
 {
@@ -23,6 +23,12 @@ void	sa(t_stack *a, t_flags *flag)
 	first = a->top;
 	second = first->next;
 	first->next = second->next;
+	if (first->next)
+		first->next->prev = first;
+	else
+		a->bottom = first;
+	first->prev = second;
+	second->prev = NULL;
 	second->next = first;
 	a->top = second;
 	if (flag)
@@ -44,6 +50,12 @@ void	sb(t_stack *b, t_flags *flag)
 	first = b->top;
 	second = first->next;
 	first->next = second->next;
+	if (first->next)
+		first->next->prev = first;
+	else
+		b->bottom = first;
+	first->prev = second;
+	second->prev = NULL;
 	second->next = first;
 	b->top = second;
 	if (flag)
@@ -65,6 +77,12 @@ static int	ss_one_stack(t_stack *stack)
 	first = stack->top;
 	second = first->next;
 	first->next = second->next;
+	if (first->next)
+		first->next->prev = first;
+	else
+		stack->bottom = first;
+	first->prev = second;
+	second->prev = NULL;
 	second->next = first;
 	stack->top = second;
 	return (1);
