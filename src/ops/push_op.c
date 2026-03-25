@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:30:01 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 04:38:36 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	pa(t_stack *a, t_stack *b, t_flags *flag)
 		return ;
 	// b'nin ustunu a'ya al
 	node = b->top;
-	// kaynaktan ayir
 	b->top = node->next;
 	b->size--;
 	// hedefin ustune koy
@@ -43,7 +42,6 @@ void	pb(t_stack *a, t_stack *b, t_flags *flag)
 		return ;
 	// a'nin ustunu b'ye al
 	node = a->top;
-	// kaynaktan ayir
 	a->top = node->next;
 	a->size--;
 	// hedefin ustune koy
