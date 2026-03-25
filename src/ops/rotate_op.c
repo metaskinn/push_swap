@@ -6,28 +6,27 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:16 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:33:09 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:48:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ops.h"
+#include "ops.h"
 
 void	ra(t_stack *a, t_flags *flag)
 {
 	t_node	*first;
-	t_node	*last;
 
 	if (!a || a->size < 2)
 		return ;
 	// ustteki dugumu al
 	first = a->top;
 	a->top = first->next;
+	a->top->prev = NULL;
 	first->next = NULL;
+	first->prev = a->bottom;
 	// sona ekle
-	last = a->top;
-	while (last->next)
-		last = last->next;
-	last->next = first;
+	a->bottom->next = first;
+	a->bottom = first;
 	if (flag)
 	{
 		flag->total_ops++;
@@ -39,19 +38,18 @@ void	ra(t_stack *a, t_flags *flag)
 void	rb(t_stack *b, t_flags *flag)
 {
 	t_node	*first;
-	t_node	*last;
 
 	if (!b || b->size < 2)
 		return ;
 	// ustteki dugumu al
 	first = b->top;
 	b->top = first->next;
+	b->top->prev = NULL;
 	first->next = NULL;
+	first->prev = b->bottom;
 	// sona ekle
-	last = b->top;
-	while (last->next)
-		last = last->next;
-	last->next = first;
+	b->bottom->next = first;
+	b->bottom = first;
 	if (flag)
 	{
 		flag->total_ops++;
@@ -63,18 +61,17 @@ void	rb(t_stack *b, t_flags *flag)
 static int	rr_one_stack(t_stack *stack)
 {
 	t_node	*first;
-	t_node	*last;
 
 	if (!stack || stack->size < 2)
 		return (0);
 	// rr icin ayni rotate mantigi
 	first = stack->top;
 	stack->top = first->next;
+	stack->top->prev = NULL;
 	first->next = NULL;
-	last = stack->top;
-	while (last->next)
-		last = last->next;
-	last->next = first;
+	first->prev = stack->bottom;
+	stack->bottom->next = first;
+	stack->bottom = first;
 	return (1);
 }
 

@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/25 04:38:36 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:49:39 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ops.h"
+#include "ops.h"
 
 void	pa(t_stack *a, t_stack *b, t_flags *flag)
 {
@@ -18,12 +18,19 @@ void	pa(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || b->size == 0)
 		return ;
-	// b'nin ustunu a'ya al
 	node = b->top;
 	b->top = node->next;
+	if (b->top)
+		b->top->prev = NULL;
+	else
+		b->bottom = NULL;
 	b->size--;
-	// hedefin ustune koy
+	node->prev = NULL;
 	node->next = a->top;
+	if (a->top)
+		a->top->prev = node;
+	else
+		a->bottom = node;
 	a->top = node;
 	a->size++;
 	if (flag)
@@ -40,12 +47,19 @@ void	pb(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b || a->size == 0)
 		return ;
-	// a'nin ustunu b'ye al
 	node = a->top;
 	a->top = node->next;
+	if (a->top)
+		a->top->prev = NULL;
+	else
+		a->bottom = NULL;
 	a->size--;
-	// hedefin ustune koy
+	node->prev = NULL;
 	node->next = b->top;
+	if (b->top)
+		b->top->prev = node;
+	else
+		b->bottom = node;
 	b->top = node;
 	b->size++;
 	if (flag)

@@ -44,7 +44,7 @@ t_node	*node_new(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
-	node->indx = 0;
+	node->indx = -1;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
@@ -57,7 +57,7 @@ void	stack_add_back(t_stack *stack, t_node *node)
 	if (!stack || !node)
 		return ;
 	node->next = NULL;
-	node->indx = stack->size;
+	node->indx = -1;
 	if (!stack->top)
 	{
 		node->prev = NULL;

@@ -6,11 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:30:04 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:48:07 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ops.h"
+#include "ops.h"
 
 void	rra(t_stack *a, t_flags *flag)
 {
@@ -19,17 +19,15 @@ void	rra(t_stack *a, t_flags *flag)
 
 	if (!a || a->size < 2)
 		return ;
-	prev = NULL;
 	// son dugum ve oncesini bul
-	last = a->top;
-	while (last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
+	last = a->bottom;
+	prev = last->prev;
 	prev->next = NULL;
+	a->bottom = prev;
 	// sonu basa al
+	last->prev = NULL;
 	last->next = a->top;
+	a->top->prev = last;
 	a->top = last;
 	if (flag)
 	{
@@ -46,17 +44,15 @@ void	rrb(t_stack *b, t_flags *flag)
 
 	if (!b || b->size < 2)
 		return ;
-	prev = NULL;
 	// son dugum ve oncesini bul
-	last = b->top;
-	while (last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
+	last = b->bottom;
+	prev = last->prev;
 	prev->next = NULL;
+	b->bottom = prev;
 	// sonu basa al
+	last->prev = NULL;
 	last->next = b->top;
+	b->top->prev = last;
 	b->top = last;
 	if (flag)
 	{
@@ -73,16 +69,14 @@ static int	rrr_one_stack(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return (0);
-	prev = NULL;
 	// rrr icin ayni reverse rotate mantigi
-	last = stack->top;
-	while (last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
+	last = stack->bottom;
+	prev = last->prev;
 	prev->next = NULL;
+	stack->bottom = prev;
+	last->prev = NULL;
 	last->next = stack->top;
+	stack->top->prev = last;
 	stack->top = last;
 	return (1);
 }
