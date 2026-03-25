@@ -23,6 +23,7 @@ SRCS = \
 	${SRC_DIR}/ops/rotate_op.c \
 	${SRC_DIR}/ops/swap_op.c \
 	${SRC_DIR}/algorithms/disorder.c \
+	${SRC_DIR}/algorithms/selector.c \
 	${SRC_DIR}/algorithms/simple/simple.c \
 	${SRC_DIR}/algorithms/medium/medium.c \
 	${SRC_DIR}/algorithms/complex/complex.c \
