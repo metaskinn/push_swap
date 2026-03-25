@@ -6,19 +6,19 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 00:26:18 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:24:27 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-# include "stack.h"
-# include "utils.h"
-
+#include "parser.h"
+#include "stack.h"
+#include "utils.h"
 
 void	create_stack(t_stack *stack)
 {
 	// stack bos baslasin
 	stack->top = NULL;
+	stack->bottom = NULL;
 	stack->size = 0;
 }
 
@@ -32,6 +32,7 @@ void	clear_stack(t_stack *stack)
 		free(stack->top);
 		stack->top = next;
 	}
+	stack->bottom = NULL;
 	stack->size = 0;
 }
 
@@ -43,7 +44,9 @@ t_node	*node_new(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->indx = 0;
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
@@ -51,14 +54,28 @@ void	stack_add_back(t_stack *stack, t_node *node)
 {
 	t_node	*last;
 
+	if (!stack || !node)
+		return ;
+	node->next = NULL;
+	node->indx = stack->size;
 	if (!stack->top)
+	{
+		node->prev = NULL;
 		stack->top = node;
+		stack->bottom = node;
+	}
 	else
 	{
-		last = stack->top;
-		while (last->next)
-			last = last->next;
+		last = stack->bottom;
+		if (!last)
+		{
+			last = stack->top;
+			while (last->next)
+				last = last->next;
+		}
 		last->next = node;
+		node->prev = last;
+		stack->bottom = node;
 	}
 	stack->size++;
 }

@@ -6,12 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:22:26 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 03:49:19 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 07:32:35 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "algo.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	create_stack(&program.b);
 	stack_build(&program.a, program.parse.args);
 	// If applied algorithms will work HERE
-	simple_sort(&program.a, &program.b, &program.flag);
+	run_selected_algo(&program);
 	clear_stack(&program.a);
 	clear_stack(&program.b);
 	// free ONLY when args came from split()
