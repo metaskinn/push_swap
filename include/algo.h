@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 05:54:42 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:23:11 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include "parser.h"
 # include "stack.h"
+# include <stdlib.h>
 
 typedef struct s_algo
 {
-	
+
 }		t_algo;
 
 double	compute_disorder(t_stack head);
