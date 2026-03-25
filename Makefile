@@ -164,7 +164,11 @@ test-all: re
 	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
 	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
 
+check: all
+	@chmod +x $(CHECKER)
+	@./$(NAME) $(ARGS) | $(CHECKER) $(ARGS)
+
 .PHONY: all clean fclean re \
 	a-pull a-push a-main a-pushall a-push-m \
 	m-check mstat mg mp mm ma mp-m \
-	test test-extended test-combo test-combo-deep test-all
+	test test-extended test-combo test-combo-deep test-all check
