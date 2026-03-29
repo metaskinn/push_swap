@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:22:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 07:39:09 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:04:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag);
 void	medium_sort(t_stack *a, t_stack *b, t_flags *flag);
 void	complex_sort(t_stack *a, t_stack *b, t_flags *flag);
 void	run_selected_algo(t_program *program);
+void	push_back_to_a(t_stack *a, t_stack *b, t_flags *flag);
+int		find_max_pos(t_stack *b);
 
 #endif
