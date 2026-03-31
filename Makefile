@@ -26,7 +26,9 @@ SRCS = \
 	${SRC_DIR}/algorithms/selector.c \
 	${SRC_DIR}/algorithms/simple/simple.c \
 	${SRC_DIR}/algorithms/medium/medium.c \
+	${SRC_DIR}/algorithms/medium/medium_helper.c \
 	${SRC_DIR}/algorithms/complex/complex.c \
+	${SRC_DIR}/algorithms/complex/complex_helper.c \
 	${SRC_DIR}/algorithms/adaptive/adaptive.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -165,6 +167,14 @@ test-all: re
 	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
 	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
 
+test-benchmark: re
+	@chmod +x $(TESTER_DIR)/performance_benchmark_tester.sh
+	@$(TESTER_DIR)/performance_benchmark_tester.sh --skip-build
+
+test-benchmark-quick: re
+	@chmod +x $(TESTER_DIR)/performance_benchmark_tester.sh
+	@$(TESTER_DIR)/performance_benchmark_tester.sh --skip-build --runs-100 2 --runs-500 2
+
 check: all
 	@chmod +x $(CHECKER)
 	@./$(NAME) $(ARGS) | $(CHECKER) $(ARGS)
@@ -172,4 +182,4 @@ check: all
 .PHONY: all clean fclean re \
 	a-pull a-push a-main a-pushall a-push-m \
 	m-check mstat mg mp mm ma mp-m \
-	test test-extended test-combo test-combo-deep test-all check
+	test test-extended test-combo test-combo-deep test-all test-benchmark test-benchmark-quick check
