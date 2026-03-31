@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 03:13:47 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/28 19:52:25 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:57:06 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 		return ;
 	while (a->size > 0)
 	{
+		if (compute_disorder(*a) == 0)
+			break ;
 		min_index = find_min_index(a);
 		rotate_simple(a, min_index, flag);
 		pb(a, b, flag);
