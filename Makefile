@@ -3,6 +3,7 @@ NAME = push_swap
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I include/
+CHECKER = ./checker_Mac
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -141,45 +142,48 @@ ma: mp mm
 
 # ─── Testers ──────────────────────────────────────────────────────────────────
 
-TESTER_DIR := testers
+TESTER = ./test.sh
+TEST_SIZE ?= 100
+TEST_COUNT ?= 10
+DISORDER ?= 0.5
 
-test:  re
-	@chmod +x $(TESTER_DIR)/parse_tester.sh
-	@$(TESTER_DIR)/parse_tester.sh --skip-build
+tester-setup:
+	@chmod +x $(TESTER)
+	@if [ -f ./checker_Mac ] && [ ! -f ./checker_linux ]; then \
+		cp ./checker_Mac ./checker_linux; \
+	fi
+	@if [ -f ./checker_linux ]; then chmod +x ./checker_linux; fi
 
-test-combo: re
-	@chmod +x $(TESTER_DIR)/parse_combo_tester.sh
-	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
+test-help: tester-setup
+	@$(TESTER) --help
 
-test-combo-deep: re
-	@chmod +x $(TESTER_DIR)/parse_combo_tester.sh
-	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build --max-args 1 --max-flags 1
+test: re tester-setup
+	@$(TESTER)
 
-test-extended: re
-	@chmod +x $(TESTER_DIR)/parse_tester_extended.sh
-	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
+test-custom: re tester-setup
+	@$(TESTER) $(TEST_SIZE) $(TEST_COUNT)
 
-test-all: re
-	@chmod +x $(TESTER_DIR)/parse_tester.sh \
-	          $(TESTER_DIR)/parse_tester_extended.sh \
-	          $(TESTER_DIR)/parse_combo_tester.sh
-	@$(TESTER_DIR)/parse_tester.sh --skip-build
-	@$(TESTER_DIR)/parse_tester_extended.sh --skip-build
-	@$(TESTER_DIR)/parse_combo_tester.sh --skip-build
+test-extra: re tester-setup
+	@$(TESTER) -extra $(TEST_SIZE) $(TEST_COUNT)
 
-test-benchmark: re
-	@chmod +x $(TESTER_DIR)/performance_benchmark_tester.sh
-	@$(TESTER_DIR)/performance_benchmark_tester.sh --skip-build
+test-simple: re tester-setup
+	@$(TESTER) -simple $(TEST_SIZE) $(TEST_COUNT)
 
-test-benchmark-quick: re
-	@chmod +x $(TESTER_DIR)/performance_benchmark_tester.sh
-	@$(TESTER_DIR)/performance_benchmark_tester.sh --skip-build --runs-100 2 --runs-500 2
+test-medium: re tester-setup
+	@$(TESTER) -medium $(TEST_SIZE) $(TEST_COUNT)
+
+test-complex: re tester-setup
+	@$(TESTER) -complex $(TEST_SIZE) $(TEST_COUNT)
+
+test-disorder: re tester-setup
+	@$(TESTER) -d $(DISORDER) $(TEST_SIZE) $(TEST_COUNT)
 
 check: all
 	@chmod +x $(CHECKER)
 	@./$(NAME) $(ARGS) | $(CHECKER) $(ARGS)
 
+
 .PHONY: all clean fclean re \
 	a-pull a-push a-main a-pushall a-push-m \
 	m-check mstat mg mp mm ma mp-m \
-	test test-extended test-combo test-combo-deep test-all test-benchmark test-benchmark-quick check
+	tester-setup test-help test test-custom test-extra test-simple test-medium test-complex test-disorder check
