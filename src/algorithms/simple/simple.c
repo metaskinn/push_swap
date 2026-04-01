@@ -6,7 +6,7 @@
 /*  By: asobolev <asobolev@student.42istanbul.com.tr>+#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2026/03/25 03:13:47 by metaskin            #+#    #+#            */
-/*  Updated: 2026/03/30 17:01:41 by asobolev           ###   ########.fr      */
+/*  Updated: 2026/04/01 20:46:53 by asobolev           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 	if (compute_disorder(*a) == 0)
 		return ;
 	while (a->size > 0)
-	{	
-		if (compute_disorder(*a) == 0)
-			break; // cod erken  şekilde  sıralanırsa diye minik optimizasyon ;))
+	{
 		min_index = find_min_index(a);
 		rotate_simple(a, min_index, flag);
 		pb(a, b, flag);
