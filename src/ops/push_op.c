@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/25 07:49:39 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:43 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

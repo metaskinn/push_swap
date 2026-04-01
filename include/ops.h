@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:50:25 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:31:35 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:52:34 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

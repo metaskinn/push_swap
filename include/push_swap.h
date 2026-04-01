@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 01:19:07 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:52:49 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

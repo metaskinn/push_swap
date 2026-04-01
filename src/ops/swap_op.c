@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:21 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/25 07:48:13 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:52 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	sa(t_stack *a, t_flags *flag)
 
 	if (!a || a->size < 2)
 		return ;
-	// ilk iki dugumu degistir
 	first = a->top;
 	second = first->next;
 	first->next = second->next;
@@ -46,7 +45,6 @@ void	sb(t_stack *b, t_flags *flag)
 
 	if (!b || b->size < 2)
 		return ;
-	// ilk iki dugumu degistir
 	first = b->top;
 	second = first->next;
 	first->next = second->next;
@@ -73,7 +71,6 @@ static int	ss_one_stack(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return (0);
-	// ss icin ayni swap mantigi
 	first = stack->top;
 	second = first->next;
 	first->next = second->next;
@@ -93,7 +90,6 @@ void	ss(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
-	// iki stack'i degistir, bir kez ss yaz
 	changed_a = ss_one_stack(a);
 	changed_b = ss_one_stack(b);
 	if ((changed_a || changed_b) && flag)

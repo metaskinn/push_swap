@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_helpers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:27:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/22 14:56:21 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:25 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,27 @@ char	*join_args(char **argv, int start, int argc)
 	return (joined);
 }
 
-int	check_argv_wspace(char **argv, int start, int argc, int *count, int *index)
+t_wspace_check	check_argv_wspace(char **argv, int start, int argc)
 {
-	int	i;
+	t_wspace_check	result;
+	int				i;
 
 	i = start;
-	*count = 0;
-	*index = -1;
+	result.count = 0;
+	result.index = -1;
 	while (i < argc)
 	{
 		if (is_empty_token(argv[i]))
-			return (1);
+		{
+			result.count = -1;
+			return (result);
+		}
 		if (has_wspace_char(argv[i]))
 		{
-			(*count)++;
-			*index = i;
+			result.count++;
+			result.index = i;
 		}
 		i++;
 	}
-	return (0);
+	return (result);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         :::      ::::::::  */
-/*  stack.h                                              :+:      :+:    :+:  */
-/*                                                     +:+ +:+         +:+    */
-/*  By: asobolev <asobolev@student.42istanbul.com.tr>+#+  +:+       +#+       */
-/*                                                 +#+#+#+#+#+   +#+          */
-/*  Created: 2026/03/20 16:58:00 by metaskin            #+#    #+#            */
-/*  Updated: 2026/04/01 02:19:42 by asobolev           ###   ########.fr      */
+/*                                                        :::      ::::::::   */
+/*   stack.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 0026/03/20 16:58:00 by etaskin           #+#    #+#             */
+/*   Updated: 2026/04/02 01:52:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_node
 {
 	int				value;
-	int 			indx;
+	int				indx;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -27,7 +27,7 @@ typedef struct s_stack
 {
 	int				size;
 	t_node			*top;
-	t_node          *bottom;	
+	t_node			*bottom;
 }					t_stack;
 
 /* stack.c */

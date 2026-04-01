@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_helper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asobolev <asobolev@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 20:02:51 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/30 06:07:42 by asobolev         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:31 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

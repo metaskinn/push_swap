@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/20 20:30:21 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:03 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-# include "utils.h"
+#include "parser.h"
+#include "utils.h"
 
 void	default_flag(t_flags *flag)
 {
@@ -40,7 +40,6 @@ int	are_flags(char *arg)
 
 static int	pre_algo(t_flags *flag, t_which_algo algo)
 {
-	// algo bir kez secilsin
 	if (flag->algo_did)
 		return (1);
 	flag->which_algo = algo;
@@ -50,7 +49,6 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	// algo seciminden sonra ek flag alma
 	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
 				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
 			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,
@@ -84,7 +82,6 @@ int	handle_flags(int argc, char **argv, t_flags *flag, int *start)
 			return (1);
 		i++;
 	}
-	// ilk flag olmayan arg indisi
 	*start = i;
 	return (0);
 }

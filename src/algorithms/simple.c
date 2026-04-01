@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         :::      ::::::::  */
-/*  simple.c                                             :+:      :+:    :+:  */
-/*                                                     +:+ +:+         +:+    */
-/*  By: asobolev <asobolev@student.42istanbul.com.tr>+#+  +:+       +#+       */
-/*                                                 +#+#+#+#+#+   +#+          */
-/*  Created: 2026/03/25 03:13:47 by metaskin            #+#    #+#            */
-/*  Updated: 2026/04/01 20:48:59 by asobolev           ###   ########.fr      */
+/*                                                        :::      ::::::::   */
+/*   simple.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 0026/03/25 03:13:47 by etaskin           #+#    #+#             */
+/*   Updated: 2026/04/02 01:53:39 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	rotate_simple(t_stack *a, int min_index, t_flags *flag)
 void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 {
 	int	min_index;
-	
+
 	if (!a || !b)
 		return ;
 	if (compute_disorder(*a) == 0)
@@ -73,13 +73,14 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 	{
 		if (compute_disorder(*a) == 0)
 			break ;
-	{	
-		if (compute_disorder(*a) == 0)
-			break; // cod erken  şekilde  sıralanırsa diye minik optimizasyon ;))
-		min_index = find_min_index(a);
-		rotate_simple(a, min_index, flag);
-		pb(a, b, flag);
+		{
+			if (compute_disorder(*a) == 0)
+				break ;
+			min_index = find_min_index(a);
+			rotate_simple(a, min_index, flag);
+			pb(a, b, flag);
+		}
+		while (b->size > 0)
+			pa(a, b, flag);
 	}
-	while (b->size > 0)
-		pa(a, b, flag);
 }

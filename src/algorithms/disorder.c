@@ -3,26 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 22:05:31 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 01:19:47 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:28 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
+static double	get_value_at_index(t_stack head, int index)
+{
+	t_stack	a;
+	int		cursor;
+
+	a = head;
+	cursor = 0;
+	while (cursor < index)
+	{
+		a.top = a.top->next;
+		cursor++;
+	}
+	return (a.top->value);
+}
+
+static double	count_inversions(t_stack head, int i, int size)
+{
+	double	mistakes;
+	double	firstv;
+	double	secondv;
+	int		j;
+
+	mistakes = 0;
+	firstv = get_value_at_index(head, i);
+	j = i + 1;
+	while (j < size)
+	{
+		secondv = get_value_at_index(head, j);
+		if (firstv > secondv)
+			mistakes++;
+		j++;
+	}
+	return (mistakes);
+}
+
 double	compute_disorder(t_stack head)
 {
 	double	mistakes;
 	double	tpairs;
-	double	i;
-	double	j;
+	int		i;
 	int		size;
-	double	firstv;
-	double	secondv;
-	t_stack	a;
-	double	cursor;
 
 	size = head.size;
 	mistakes = 0;
@@ -30,30 +60,8 @@ double	compute_disorder(t_stack head)
 	i = 0;
 	while (i < size)
 	{
-		cursor = 0;
-		a = head;
-		while (cursor < i)
-		{
-			a.top = a.top->next;
-			cursor++;
-		}
-		firstv = a.top->value;
-		j = i + 1;
-		while (j < size)
-		{
-			a = head;
-			cursor = 0;
-			while (cursor < j)
-			{
-				a.top = a.top->next;
-				cursor++;
-			}
-			secondv = a.top->value;
-			if (firstv > secondv)
-				mistakes++;
-			j++;
-			tpairs++;
-		}
+		mistakes += count_inversions(head, i, size);
+		tpairs += (size - i - 1);
 		i++;
 	}
 	return (mistakes / tpairs);
