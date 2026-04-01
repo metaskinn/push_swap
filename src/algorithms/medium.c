@@ -99,7 +99,7 @@ void	medium_sort(t_stack *a, t_stack *b, t_flags *flag)
 	if (a->size <= 100)
 		chunk = 15;
 	else
-		chunk = 32;
+		chunk = 36;
 	push_chunks_to_b(a, b, chunk, flag);
 	push_back_to_a(a, b, flag);
 }

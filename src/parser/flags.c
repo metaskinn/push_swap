@@ -15,12 +15,20 @@
 
 void	default_flag(t_flags *flag)
 {
+	int	i;
+
 	flag->which_algo = ADAPTIVE;
 	flag->bench = 0;
 	flag->algo_did = 0;
 	flag->total_ops = 0;
 	flag->enabled = 1;
-	flag->disorder = 0;
+	flag->disorder = -1.0;
+	i = 0;
+	while (i < 11)
+	{
+		flag->op_count[i] = 0;
+		i++;
+	}
 }
 
 int	are_flags(char *arg)

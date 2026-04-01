@@ -6,18 +6,26 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/02 01:53:43 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 02:52:38 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ops.h"
 
-void	pa(t_stack *a, t_stack *b, t_flags *flag)
+static void	count_push_op(t_flags *flag, t_op op, char *name)
+{
+	if (!flag)
+		return ;
+	flag->total_ops++;
+	flag->op_count[op]++;
+	if (flag->enabled)
+		write(1, name, 3);
+}
+
+static void	move_from_b_to_a(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (!a || !b || b->size == 0)
-		return ;
 	node = b->top;
 	b->top = node->next;
 	if (b->top)
@@ -33,20 +41,12 @@ void	pa(t_stack *a, t_stack *b, t_flags *flag)
 		a->bottom = node;
 	a->top = node;
 	a->size++;
-	if (flag)
-	{
-		flag->total_ops++;
-		if (flag->enabled && !flag->bench)
-			write(1, "pa\n", 3);
-	}
 }
 
-void	pb(t_stack *a, t_stack *b, t_flags *flag)
+static void	move_from_a_to_b(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (!a || !b || a->size == 0)
-		return ;
 	node = a->top;
 	a->top = node->next;
 	if (a->top)
@@ -62,10 +62,20 @@ void	pb(t_stack *a, t_stack *b, t_flags *flag)
 		b->bottom = node;
 	b->top = node;
 	b->size++;
-	if (flag)
-	{
-		flag->total_ops++;
-		if (flag->enabled && !flag->bench)
-			write(1, "pb\n", 3);
-	}
+}
+
+void	pa(t_stack *a, t_stack *b, t_flags *flag)
+{
+	if (!a || !b || b->size == 0)
+		return ;
+	move_from_b_to_a(a, b);
+	count_push_op(flag, OP_PA, "pa\n");
+}
+
+void	pb(t_stack *a, t_stack *b, t_flags *flag)
+{
+	if (!a || !b || a->size == 0)
+		return ;
+	move_from_a_to_b(a, b);
+	count_push_op(flag, OP_PB, "pb\n");
 }

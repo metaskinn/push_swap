@@ -64,5 +64,7 @@ double	compute_disorder(t_stack head)
 		tpairs += (size - i - 1);
 		i++;
 	}
+	if (tpairs == 0)
+		return (0.0);
 	return (mistakes / tpairs);
 }

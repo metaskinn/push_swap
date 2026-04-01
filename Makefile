@@ -19,6 +19,7 @@ SRCS = \
 	${SRC_DIR}/utils/second_func.c \
 	${SRC_DIR}/utils/checks.c \
 	${SRC_DIR}/utils/parse_helpers.c \
+	${SRC_DIR}/utils/bench.c \
 	${SRC_DIR}/ops/push_op.c \
 	${SRC_DIR}/ops/reverse_rotate_op.c \
 	${SRC_DIR}/ops/rotate_op.c \
