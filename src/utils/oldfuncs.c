@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   oldfuncs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:31:01 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:32:42 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:20 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "utils.h"
+#include "utils.h"
 
 void	*ft_memset(void *b, int c, size_t n)
 {

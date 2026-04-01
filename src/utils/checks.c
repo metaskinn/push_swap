@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/20 20:32:34 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:14 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-# include "utils.h"
+#include "parser.h"
+#include "utils.h"
 
 int	error(void)
 {
@@ -52,7 +52,6 @@ int	has_dup(char **args)
 	long	b;
 
 	i = 0;
-	// push_swap icin O(n^2) yeterli
 	while (args[i])
 	{
 		a = ft_atol(args[i]);

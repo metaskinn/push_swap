@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 08:03:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 07:24:27 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:29 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void	create_stack(t_stack *stack)
 {
-	// stack bos baslasin
 	stack->top = NULL;
 	stack->bottom = NULL;
 	stack->size = 0;
@@ -67,14 +66,11 @@ void	stack_add_back(t_stack *stack, t_node *node)
 	else
 	{
 		last = stack->bottom;
-		if (!last)
+		if (last)
 		{
-			last = stack->top;
-			while (last->next)
-				last = last->next;
+			last->next = node;
+			node->prev = last;
 		}
-		last->next = node;
-		node->prev = last;
 		stack->bottom = node;
 	}
 	stack->size++;
@@ -88,7 +84,6 @@ void	stack_build(t_stack *stack, char **args)
 	index = 0;
 	while (args[index] != NULL)
 	{
-		// alloc patlarsa parcali stack'i temizle
 		node = node_new((int)ft_atol(args[index]));
 		if (node == NULL)
 		{

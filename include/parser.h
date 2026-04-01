@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/22 14:56:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:52:37 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ typedef struct s_parse
 	int				must_free;
 }					t_parse;
 
+typedef struct s_wspace_check
+{
+	int				count;
+	int				index;
+}					t_wspace_check;
+
 /* flags.c */
 void				default_flag(t_flags *flag);
 int					are_flags(char *arg);
@@ -58,8 +64,7 @@ int					has_wspace_char(char *s);
 int					is_empty_token(char *s);
 int					has_edge_wspace(char *s);
 char				*join_args(char **argv, int start, int argc);
-int					check_argv_wspace(char **argv, int start, int argc,
-						int *count, int *index);
+t_wspace_check		check_argv_wspace(char **argv, int start, int argc);
 
 /* parse.c */
 void				check_numbers(char **args);

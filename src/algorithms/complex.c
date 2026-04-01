@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:31:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/25 07:27:23 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:26 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

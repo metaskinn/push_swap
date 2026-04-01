@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/03/22 14:56:41 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:54:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ static int	parse_single_arg(char **argv, int start, t_parse *parse)
 
 static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 {
-	int	count;
-	int	index;
+	t_wspace_check	ws;
 
-	if (check_argv_wspace(argv, start, argc, &count, &index))
+	ws = check_argv_wspace(argv, start, argc);
+	if (ws.count == -1)
 		error();
-	if (count == 0)
+	if (ws.count == 0)
 	{
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}
-	else if (count == 1 && !has_edge_wspace(argv[index]))
+	else if (ws.count == 1 && !has_edge_wspace(argv[ws.index]))
 		parse_joined_args(argc, argv, start, parse);
 	else
 		error();
@@ -64,16 +64,13 @@ void	check_numbers(char **args)
 	i = 0;
 	while (args[i])
 	{
-		// once bicimi dogru mu
 		if (!is_numstr(args[i]))
 			error();
 		number = ft_atol(args[i]);
-		// 32 bit int araligi
 		if (!is_intranger_range(number))
 			error();
 		i++;
 	}
-	// tekrar eden deger var mi
 	if (has_dup(args))
 		error();
 }

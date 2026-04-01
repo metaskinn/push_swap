@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.com.t+#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:16 by asobolev          #+#    #+#             */
-/*   Updated: 2026/03/25 07:48:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 01:53:49 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ void	ra(t_stack *a, t_flags *flag)
 
 	if (!a || a->size < 2)
 		return ;
-	// ustteki dugumu al
 	first = a->top;
 	a->top = first->next;
 	a->top->prev = NULL;
 	first->next = NULL;
 	first->prev = a->bottom;
-	// sona ekle
 	a->bottom->next = first;
 	a->bottom = first;
 	if (flag)
@@ -41,13 +39,11 @@ void	rb(t_stack *b, t_flags *flag)
 
 	if (!b || b->size < 2)
 		return ;
-	// ustteki dugumu al
 	first = b->top;
 	b->top = first->next;
 	b->top->prev = NULL;
 	first->next = NULL;
 	first->prev = b->bottom;
-	// sona ekle
 	b->bottom->next = first;
 	b->bottom = first;
 	if (flag)
@@ -64,7 +60,6 @@ static int	rr_one_stack(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return (0);
-	// rr icin ayni rotate mantigi
 	first = stack->top;
 	stack->top = first->next;
 	stack->top->prev = NULL;
@@ -80,7 +75,6 @@ void	rr(t_stack *a, t_stack *b, t_flags *flag)
 	int	changed_a;
 	int	changed_b;
 
-	// iki stack'i cevir, bir kez rr yaz
 	changed_a = rr_one_stack(a);
 	changed_b = rr_one_stack(b);
 	if ((changed_a || changed_b) && flag)
