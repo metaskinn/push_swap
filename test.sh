@@ -884,6 +884,12 @@ if [ $RUN_STANDARD_TESTS -eq 1 ]; then
     run_error_test "Negative duplicates" -5 -5
     run_error_test "Many duplicates" 1 2 3 4 5 3
 
+    print_section "ERROR TESTS - Flag Parsing"
+    run_error_test "Unknown flag" --unknown 3 2 1
+    run_error_test "Two algo flags" --simple --medium 3 2 1
+    run_error_test "Algo then bench" --simple --bench 3 2 1
+    run_error_test "Flag after numbers" 3 2 1 --simple
+
     # ============= VALID TESTS =============
     print_section "VALID TESTS - No Arguments"
     TOTAL=$((TOTAL + 1))
@@ -948,6 +954,12 @@ if [ $RUN_STANDARD_TESTS -eq 1 ]; then
     run_valid_test "Mixed format 2" 0 "" "1" "2" "3"
     run_valid_test "Multiple strings" 0 "" "1 2 3" "4 5 6"
     run_error_test "Complex mix" "5 4" 3 "2 1"
+
+    print_section "VALID TESTS - Flag Parsing"
+    run_valid_test "Bench + simple" 0 "--bench --simple" 5 4 3 2 1
+    run_valid_test "Bench + medium" 0 "--bench --medium" 5 4 3 2 1
+    run_valid_test "Bench + complex" 0 "--bench --complex" 5 4 3 2 1
+    run_valid_test "Bench + adaptive" 0 "--bench --adaptive" 5 4 3 2 1
 
     print_section "VALID TESTS - Negative Numbers"
     run_valid_test "All negatives sorted" 0 "" -1 -2 -3

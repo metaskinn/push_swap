@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 01:54:03 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 02:04:07 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	default_flag(t_flags *flag)
 
 int	are_flags(char *arg)
 {
-	if (mt_strcmp(arg, "--bench") == 0)
+	if (ft_strcmp(arg, "--bench") == 0)
 		return (1);
-	else if (mt_strcmp(arg, "--simple") == 0)
+	else if (ft_strcmp(arg, "--simple") == 0)
 		return (1);
-	else if (mt_strcmp(arg, "--medium") == 0)
+	else if (ft_strcmp(arg, "--medium") == 0)
 		return (1);
-	else if (mt_strcmp(arg, "--complex") == 0)
+	else if (ft_strcmp(arg, "--complex") == 0)
 		return (1);
-	else if (mt_strcmp(arg, "--adaptive") == 0)
+	else if (ft_strcmp(arg, "--adaptive") == 0)
 		return (1);
 	return (0);
 }
@@ -49,20 +49,20 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	if (flag->algo_did && (mt_strcmp(arg, "--bench") == 0 || mt_strcmp(arg,
-				"--simple") == 0 || mt_strcmp(arg, "--medium") == 0
-			|| mt_strcmp(arg, "--complex") == 0 || mt_strcmp(arg,
+	if (flag->algo_did && (ft_strcmp(arg, "--bench") == 0 || ft_strcmp(arg,
+				"--simple") == 0 || ft_strcmp(arg, "--medium") == 0
+			|| ft_strcmp(arg, "--complex") == 0 || ft_strcmp(arg,
 				"--adaptive") == 0))
 		return (1);
-	else if (mt_strcmp(arg, "--bench") == 0)
+	else if (ft_strcmp(arg, "--bench") == 0)
 		flag->bench = 1;
-	else if (mt_strcmp(arg, "--simple") == 0)
+	else if (ft_strcmp(arg, "--simple") == 0)
 		return (pre_algo(flag, SIMPLE));
-	else if (mt_strcmp(arg, "--medium") == 0)
+	else if (ft_strcmp(arg, "--medium") == 0)
 		return (pre_algo(flag, MEDIUM));
-	else if (mt_strcmp(arg, "--complex") == 0)
+	else if (ft_strcmp(arg, "--complex") == 0)
 		return (pre_algo(flag, COMPLEX));
-	else if (mt_strcmp(arg, "--adaptive") == 0)
+	else if (ft_strcmp(arg, "--adaptive") == 0)
 		return (pre_algo(flag, ADAPTIVE));
 	else
 		return (1);
