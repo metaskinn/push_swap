@@ -71,16 +71,10 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 		return ;
 	while (a->size > 0)
 	{
-		if (compute_disorder(*a) == 0)
-			break ;
-		{
-			if (compute_disorder(*a) == 0)
-				break ;
-			min_index = find_min_index(a);
-			rotate_simple(a, min_index, flag);
-			pb(a, b, flag);
-		}
-		while (b->size > 0)
-			pa(a, b, flag);
+		min_index = find_min_index(a);
+		rotate_simple(a, min_index, flag);
+		pb(a, b, flag);
 	}
+	while (b->size > 0)
+		pa(a, b, flag);
 }

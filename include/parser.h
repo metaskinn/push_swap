@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 01:52:37 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 02:50:52 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef struct s_flags
 	int				algo_did;
 	int				total_ops;
 	int				enabled;
-	int				disorder;
+	double			disorder;
+	int				op_count[11];
 }					t_flags;
 typedef struct s_parse
 {

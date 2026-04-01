@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/02 01:53:46 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 02:39:34 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	rra(t_stack *a, t_flags *flag)
 	if (flag)
 	{
 		flag->total_ops++;
-		if (flag->enabled && !flag->bench)
+		flag->op_count[OP_RRA]++;
+		if (flag->enabled)
 			write(1, "rra\n", 4);
 	}
 }
@@ -53,7 +54,8 @@ void	rrb(t_stack *b, t_flags *flag)
 	if (flag)
 	{
 		flag->total_ops++;
-		if (flag->enabled && !flag->bench)
+		flag->op_count[OP_RRB]++;
+		if (flag->enabled)
 			write(1, "rrb\n", 4);
 	}
 }
@@ -86,7 +88,8 @@ void	rrr(t_stack *a, t_stack *b, t_flags *flag)
 	if ((changed_a || changed_b) && flag)
 	{
 		flag->total_ops++;
-		if (flag->enabled && !flag->bench)
+		flag->op_count[OP_RRR]++;
+		if (flag->enabled)
 			write(1, "rrr\n", 4);
 	}
 }

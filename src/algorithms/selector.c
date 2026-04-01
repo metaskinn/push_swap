@@ -19,6 +19,10 @@ void	run_selected_algo(t_program *program)
 		simple_sort(&program->a, &program->b, &program->flag);
 	else if (program->flag.which_algo == MEDIUM)
 		medium_sort(&program->a, &program->b, &program->flag);
+	else if (program->flag.which_algo == COMPLEX)
+		complex_sort(&program->a, &program->b, &program->flag);
+	else if (program->flag.which_algo == ADAPTIVE)
+		adaptive_sort(&program->a, &program->b, &program->flag);
 	else
-		medium_sort(&program->a, &program->b, &program->flag);
+		adaptive_sort(&program->a, &program->b, &program->flag);
 }
