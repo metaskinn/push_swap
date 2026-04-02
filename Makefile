@@ -14,12 +14,12 @@ SRCS = \
 	${SRC_DIR}/parser/parse.c \
 	${SRC_DIR}/parser/atol.c \
 	${SRC_DIR}/parser/flags.c \
+	${SRC_DIR}/parser/parse_helpers.c \
 	${SRC_DIR}/utils/stack.c \
 	${SRC_DIR}/utils/first_func.c \
 	${SRC_DIR}/utils/second_func.c \
 	${SRC_DIR}/utils/ft_printf_fd.c \
 	${SRC_DIR}/utils/checks.c \
-	${SRC_DIR}/utils/parse_helpers.c \
 	${SRC_DIR}/utils/bench.c \
 	${SRC_DIR}/ops/push_op.c \
 	${SRC_DIR}/ops/reverse_rotate_op.c \
