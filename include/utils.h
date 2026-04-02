@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 02:03:05 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 02:03:51 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 03:03:28 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 /* checks.c */
 int		error(void);
@@ -31,5 +32,15 @@ void	*ft_calloc(size_t count, size_t size);
 
 /* newfuncs.c */
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_putchar(char c);
+
+/* parse_helpers.c */
+int		has_wspace_char(char *s);
+int		is_empty_token(char *s);
+int		has_edge_wspace(char *s);
+char	*join_args(char **argv, int start, int argc);
+
+/* ft_printf.c */
+int		ft_printf(const char *format, ...);
 
 #endif
