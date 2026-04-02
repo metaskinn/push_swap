@@ -21,8 +21,3 @@ int	ft_strcmp(const char *s1, const char *s2)
 		idx++;
 	return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
 }
-
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}

@@ -17,7 +17,6 @@ SRCS = \
 	${SRC_DIR}/utils/stack.c \
 	${SRC_DIR}/utils/first_func.c \
 	${SRC_DIR}/utils/second_func.c \
-	${SRC_DIR}/utils/ft_printf.c \
 	${SRC_DIR}/utils/ft_printf_fd.c \
 	${SRC_DIR}/utils/checks.c \
 	${SRC_DIR}/utils/parse_helpers.c \

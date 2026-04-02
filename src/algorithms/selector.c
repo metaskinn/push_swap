@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:35:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 01:53:36 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:44:07 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
-#include "push_swap.h"
 
 void	run_selected_algo(t_program *program)
 {
