@@ -6,16 +6,16 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 02:03:05 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 03:03:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 03:06:29 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 /* checks.c */
 int		error(void);
@@ -42,5 +42,6 @@ char	*join_args(char **argv, int start, int argc);
 
 /* ft_printf.c */
 int		ft_printf(const char *format, ...);
+int		ft_printf_fd(int fd, const char *format, ...);
 
 #endif

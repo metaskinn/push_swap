@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 02:44:58 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 03:02:37 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 03:08:56 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-
 
 static int	ft_putstr(const char *s)
 {
