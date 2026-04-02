@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 23:50:34 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 01:52:49 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:47:09 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "parser.h"
 # include "stack.h"
-# include <stdlib.h>
-# include <unistd.h>
 
 typedef struct s_program
 {
