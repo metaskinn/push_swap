@@ -274,15 +274,17 @@ extract_first_useful_line() {
 }
 
 generate_message_once() {
-  local prompt context preferred_type tmpfile pid raw result
+  local prompt context preferred_type model tmpfile pid raw result
 
   context="$(build_staged_context)"
   preferred_type="$(infer_type_from_staged)"
+  model="${AI_COMMIT_MODEL:-gpt-5.2}"
   prompt="$(build_prompt "$context" "$preferred_type")"
   tmpfile="$(mktemp /tmp/ai-commit-output.XXXXXX)"
 
   (
     copilot \
+      --model "$model" \
       -p "$prompt" \
       -s \
       --no-ask-user \
