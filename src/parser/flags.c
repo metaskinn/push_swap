@@ -19,7 +19,6 @@ void	default_flag(t_flags *flag)
 
 	flag->which_algo = ADAPTIVE;
 	flag->bench = 0;
-	flag->count_only = 0;
 	flag->algo_did = 0;
 	flag->total_ops = 0;
 	flag->enabled = 1;
@@ -35,8 +34,6 @@ void	default_flag(t_flags *flag)
 int	are_flags(char *arg)
 {
 	if (ft_strcmp(arg, "--bench") == 0)
-		return (1);
-	else if (ft_strcmp(arg, "--count-only") == 0)
 		return (1);
 	else if (ft_strcmp(arg, "--simple") == 0)
 		return (1);
@@ -61,18 +58,12 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 int	apply_flag(t_flags *flag, char *arg)
 {
 	if (flag->algo_did && (ft_strcmp(arg, "--bench") == 0 || ft_strcmp(arg,
-				"--count-only") == 0 || ft_strcmp(arg, "--simple") == 0
-			|| ft_strcmp(arg, "--medium") == 0
+				"--simple") == 0 || ft_strcmp(arg, "--medium") == 0
 			|| ft_strcmp(arg, "--complex") == 0 || ft_strcmp(arg,
 				"--adaptive") == 0))
 		return (1);
 	else if (ft_strcmp(arg, "--bench") == 0)
 		flag->bench = 1;
-	else if (ft_strcmp(arg, "--count-only") == 0)
-	{
-		flag->count_only = 1;
-		flag->enabled = 0;
-	}
 	else if (ft_strcmp(arg, "--simple") == 0)
 		return (pre_algo(flag, SIMPLE));
 	else if (ft_strcmp(arg, "--medium") == 0)
