@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "utils.h"
 
 int	main(int argc, char **argv)
 {
@@ -23,7 +24,9 @@ int	main(int argc, char **argv)
 	stack_build(&program.a, program.parse.args);
 	program.flag.disorder = compute_disorder(program.a);
 	run_selected_algo(&program);
-	if (program.flag.bench)
+	if (program.flag.count_only)
+		ft_printf_fd(1, "%d\n", program.flag.total_ops);
+	else if (program.flag.bench)
 		print_benchmark(&program);
 	clear_stack(&program.a);
 	clear_stack(&program.b);

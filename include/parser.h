@@ -27,6 +27,7 @@ typedef struct s_flags
 {
 	t_which_algo	which_algo;
 	int				bench;
+	int				count_only;
 	int				algo_did;
 	int				total_ops;
 	int				enabled;
