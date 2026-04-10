@@ -23,5 +23,6 @@ obj/*
 # clangd / editor config
 compile_flags.txt
 .clangd
-.understand-anything
-.claude
+
+# .understand-anything
+# .claude
