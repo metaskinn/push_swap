@@ -102,8 +102,18 @@ before being kept.
 
 ## Contributors
 
-- metaskin: adaptive selection, benchmark reporting, README, and project integration.
-- asobolev: core stack operations and sorting primitives.
+**metaskin (Meltem Taşkın):**
+- Adaptive algorithm design and implementation (`--adaptive` flag)
+- Disorder calculation and measurement
+- Benchmark mode feature (output formatting, operation counting)
+- README documentation and project integration
+- Algorithm complexity analysis and threshold tuning
+
+**asobolev (Alex Sobolev):**
+- Core stack operations: `push_op.c`, `swap_op.c`, `rotate_op.c`, `reverse_rotate_op.c`
+- Sorting primitives: `simple_sort()` implementation
+- Doubly-linked list data structure design (`stack.h`, `stack.c`)
+- Node operations and memory management
 
 ## Notes
 
