@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:31:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 02:46:56 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/10 04:10:26 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ void	complex_sort(t_stack *a, t_stack *b, t_flags *flag)
 		return ;
 	if (a->size < 2 || compute_disorder(*a) == 0)
 		return ;
-	if (a->size <= 500)
-	{
-		medium_sort(a, b, flag);
-		return ;
-	}
 	complex_assign_indices(a);
 	max_bits = complex_max_bits_for_size(a->size);
 	bit = 0;
