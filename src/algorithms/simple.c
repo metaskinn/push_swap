@@ -67,9 +67,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b)
 		return ;
-	if (compute_disorder(*a) == 0)
-		return ;
-	while (a->size > 0)
+	while (a->size > 0 && compute_disorder(*a) != 0)
 	{
 		min_index = find_min_index(a);
 		rotate_simple(a, min_index, flag);
