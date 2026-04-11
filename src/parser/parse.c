@@ -56,25 +56,6 @@ static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 	return (1);
 }
 
-void	check_numbers(char **args)
-{
-	int		i;
-	long	number;
-
-	i = 0;
-	while (args[i])
-	{
-		if (!is_numstr(args[i]))
-			error();
-		number = ft_atol(args[i]);
-		if (!is_intranger_range(number))
-			error();
-		i++;
-	}
-	if (has_dup(args))
-		error();
-}
-
 int	read_args(int argc, char **argv, t_flags *flag, t_parse *parse)
 {
 	int	start;

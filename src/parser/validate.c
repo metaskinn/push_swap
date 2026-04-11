@@ -1,11 +1,11 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_helpers.c                                    :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 19:27:00 by metaskin          #+#    #+#             */
+/*   Created: 2026/04/10 00:00:00 by metaskin          #+#    #+#             */
 /*   Updated: 2026/04/10 00:00:00 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,46 +13,21 @@
 #include "parser.h"
 #include "utils.h"
 
-int	has_wspace_char(char *s)
+void	check_numbers(char **args)
 {
-	int	i;
+	int		i;
+	long	number;
 
 	i = 0;
-	while (s[i])
+	while (args[i])
 	{
-		if (is_wspace(s[i]))
-			return (1);
+		if (!is_numstr(args[i]))
+			error();
+		number = ft_atol(args[i]);
+		if (!is_intranger_range(number))
+			error();
 		i++;
 	}
-	return (0);
-}
-
-int	is_empty_token(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s[0])
-		return (1);
-	while (s[i])
-	{
-		if (!is_wspace(s[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	has_edge_wspace(char *s)
-{
-	int	len;
-
-	if (!s[0])
-		return (1);
-	if (is_wspace(s[0]))
-		return (1);
-	len = (int)ft_strlen(s);
-	if (is_wspace(s[len - 1]))
-		return (1);
-	return (0);
+	if (has_dup(args))
+		error();
 }

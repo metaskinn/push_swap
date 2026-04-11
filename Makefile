@@ -15,6 +15,8 @@ SRCS = \
 	${SRC_DIR}/parser/atol.c \
 	${SRC_DIR}/parser/flags.c \
 	${SRC_DIR}/parser/parse_helpers.c \
+	${SRC_DIR}/parser/argv_build.c \
+	${SRC_DIR}/parser/validate.c \
 	${SRC_DIR}/utils/stack.c \
 	${SRC_DIR}/utils/first_func.c \
 	${SRC_DIR}/utils/second_func.c \

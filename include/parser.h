@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 02:50:52 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/10 00:00:00 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_flags
 	double			disorder;
 	int				op_count[11];
 }					t_flags;
+
 typedef struct s_parse
 {
 	char			**args;
@@ -44,13 +45,6 @@ typedef struct s_wspace_check
 	int				count;
 	int				index;
 }					t_wspace_check;
-
-/* flags.c */
-void				default_flag(t_flags *flag);
-int					are_flags(char *arg);
-int					apply_flag(t_flags *flag, char *arg);
-int					handle_flags(int argc, char **argv, t_flags *flag,
-						int *start);
 
 /* split.c */
 int					is_wspace(char c);
@@ -64,11 +58,22 @@ long				ft_atol(char *str);
 int					has_wspace_char(char *s);
 int					is_empty_token(char *s);
 int					has_edge_wspace(char *s);
+
+/* argv_build.c */
 char				*join_args(char **argv, int start, int argc);
 t_wspace_check		check_argv_wspace(char **argv, int start, int argc);
 
-/* parse.c */
+/* validate.c */
 void				check_numbers(char **args);
+
+/* flags.c */
+void				default_flag(t_flags *flag);
+int					are_flags(char *arg);
+int					apply_flag(t_flags *flag, char *arg);
+int					handle_flags(int argc, char **argv, t_flags *flag,
+						int *start);
+
+/* parse.c */
 int					read_args(int argc, char **argv, t_flags *flag,
 						t_parse *parse);
 

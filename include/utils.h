@@ -33,12 +33,6 @@ void	*ft_calloc(size_t count, size_t size);
 /* newfuncs.c */
 int		ft_strcmp(const char *s1, const char *s2);
 
-/* parse_helpers.c */
-int		has_wspace_char(char *s);
-int		is_empty_token(char *s);
-int		has_edge_wspace(char *s);
-char	*join_args(char **argv, int start, int argc);
-
 int		ft_printf_fd(int fd, const char *format, ...);
 
 #endif
