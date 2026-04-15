@@ -5,15 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 0026/03/20 16:58:00 by metaskin           #+#    #+#             */
-/*   Updated: 2026/04/02 01:52:55 by metaskin         ###   ########.fr       */
+/*   Created: 0026/03/20 16:58:00 by metaskin          #+#    #+#             */
+/*   Updated: 2026/04/15 13:09:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
-
-# include <stdlib.h>
 
 typedef struct s_node
 {

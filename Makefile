@@ -34,6 +34,8 @@ SRCS = \
 	${SRC_DIR}/algorithms/medium_helper.c \
 	${SRC_DIR}/algorithms/complex.c \
 	${SRC_DIR}/algorithms/complex_helper.c \
+	${SRC_DIR}/algorithms/five_or_less.c \
+	${SRC_DIR}/algorithms/five_or_less_helper.c \
 	${SRC_DIR}/algorithms/adaptive.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -54,6 +56,8 @@ fclean: clean
 	rm -rf ${NAME}
 
 re: fclean all
+
+.PHONY: all clean fclean re
 
 # ─── Git Workflow Alex ────────────────────────────────────────────────────────────
 

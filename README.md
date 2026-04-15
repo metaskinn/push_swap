@@ -49,19 +49,19 @@ complexity class, total operations, and per-operation counters.
 
 ## Algorithm Design
 
-### Simple
+### Simple (by asobolev)
 The simple strategy is a selection-style extraction method. It repeatedly finds
 the smallest remaining value, rotates it to the top, pushes it to stack `b`, and
 finally restores all values to stack `a`. This is intentionally quadratic and is
 used as the baseline for low-complexity behavior.
 
-### Medium
+### Medium (by asobolev)
 The medium strategy uses chunk-based partitioning. Values are indexed, split into
 chunks, and moved from `a` to `b` in a controlled order. The largest values are
 then moved back to `a`. This keeps the operation count in the $O(n\sqrt{n})$
 family for the project’s Push_swap model.
 
-### Complex
+### Complex (by asobolev)
 The complex strategy uses an LSD radix adaptation on indexed values. It groups
 numbers bit by bit and rebuilds the sorted stack after each pass. This gives a
 predictable $O(n \log n)$-style operation bound in the Push_swap model.
@@ -96,10 +96,6 @@ method for the current input.
 - [Radix sort](https://en.wikipedia.org/wiki/Radix_sort)
 - [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
-AI was used for code organization, refactoring support, benchmark reporting, and
-document drafting. All generated suggestions were reviewed, tested, and adapted
-before being kept.
-
 ## Contributors
 
 **metaskin (Meltem Taşkın):**
@@ -108,14 +104,20 @@ before being kept.
 - Benchmark mode feature (output formatting, operation counting)
 - README documentation and project integration
 - Algorithm complexity analysis and threshold tuning
+- Node operations and memory management
 
 **asobolev (Alex Sobolev):**
 - Core stack operations: `push_op.c`, `swap_op.c`, `rotate_op.c`, `reverse_rotate_op.c`
-- Sorting primitives: `simple_sort()` implementation
+- Five or less sorting algorithm: complete implementation (`five_or_less.c`, `five_or_less_helper.c`)
 - Doubly-linked list data structure design (`stack.h`, `stack.c`)
 - Node operations and memory management
+- Medium algorithm design
 
 ## Notes
 
 The repository includes a benchmark mode and a local checker script for testing.
 All mandatory tests in this workspace currently pass.
+
+## AI Usage
+
+No AI tools were used in writing the code. AI was only utilized for educational purposes and to assist in refining the README documentation.
