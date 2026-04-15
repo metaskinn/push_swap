@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/02 01:54:05 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:24:36 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}
-	else if (ws.count == 1 && !has_edge_wspace(argv[ws.index]))
+	else if (ws.count == 1)
 		parse_joined_args(argc, argv, start, parse);
 	else
 		error();
