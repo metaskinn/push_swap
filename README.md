@@ -111,12 +111,7 @@ method for the current input.
 - Five or less sorting algorithm: complete implementation (`five_or_less.c`, `five_or_less_helper.c`)
 - Doubly-linked list data structure design (`stack.h`, `stack.c`)
 - Node operations and memory management
-- Medium algorithm design
-
-## Notes
-
-The repository includes a benchmark mode and a local checker script for testing.
-All mandatory tests in this workspace currently pass.
+- Algorithm design
 
 ## AI Usage
 
