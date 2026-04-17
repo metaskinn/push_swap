@@ -52,7 +52,7 @@ cat bench.txt
 ## Algorithm Design
 ### Disorder metric
 Disorder is computed before sorting as inversion ratio:
-`mistakes / total_pairs`, range `[0, 1]`, where `mistakes` is the inversion count (out-of-order pairs).
+`mistakes / total_pairs`, range `[0, 1]`, where `mistakes` is the inversion count (out-of-order pairs) and `total_pairs = n * (n - 1) / 2`.
 
 ### Simple (`O(n²)`)
 Selection-like extraction:
@@ -83,7 +83,7 @@ Adaptive uses initial disorder thresholds:
 
 Special-case optimization: for very small inputs (`<= 5`), dedicated small-sort routine is used.
 
-Rationale: this mapping follows the project requirement that the adaptive mode must use an `O(n²)` method in the low-disorder regime, `O(n * sqrt(n))` in medium disorder, and `O(n log n)` in high disorder. The threshold values (`0.2` and `0.5`) are taken directly from the subject-defined disorder regimes.
+Rationale: this mapping follows the project requirement on adaptive complexity per disorder regime. The threshold values (`0.2` and `0.5`) are taken directly from the subject-defined disorder boundaries (`< 0.2`, `0.2-0.5`, `>= 0.5`).
 
 ### Complexity rationale (Push Swap operation model)
 - **Time:** counted as number of emitted operations.
