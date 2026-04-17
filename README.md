@@ -100,7 +100,7 @@ Special-case optimization: for very small inputs (`<= 5`), dedicated small-sort 
 
 ## Resources
 - Push Swap Project Subject (42 School)
-- Donald Knuth, *The Art of Computer Programming* (sorting and complexity)
+- Donald Knuth, *The Art of Computer Programming*, Volume 3: *Sorting and Searching*
 - Big-O overview: <https://en.wikipedia.org/wiki/Analysis_of_algorithms>
 - Stack ADT reference: <https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>
 
