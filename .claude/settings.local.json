@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//Users/meltemtaskin/.gemini/understand-anything/understand-anything-plugin/packages/dashboard/**)",
-      "Bash(GRAPH_DIR=/Users/meltemtaskin/Desktop/push_swap npx vite --host 127.0.0.1 --open)",
-      "Bash(echo \"Started PID: $!\")"
-    ]
-  }
-}

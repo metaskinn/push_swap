@@ -98,7 +98,7 @@ method for the current input.
 
 ## Contributors
 
-**metaskin (Meltem Taşkın):**
+**metaskin:**
 - Adaptive algorithm design and implementation (`--adaptive` flag)
 - Disorder calculation and measurement
 - Benchmark mode feature (output formatting, operation counting)
@@ -106,17 +106,12 @@ method for the current input.
 - Algorithm complexity analysis and threshold tuning
 - Node operations and memory management
 
-**asobolev (Alex Sobolev):**
+**asobolev:**
 - Core stack operations: `push_op.c`, `swap_op.c`, `rotate_op.c`, `reverse_rotate_op.c`
 - Five or less sorting algorithm: complete implementation (`five_or_less.c`, `five_or_less_helper.c`)
 - Doubly-linked list data structure design (`stack.h`, `stack.c`)
 - Node operations and memory management
-- Medium algorithm design
-
-## Notes
-
-The repository includes a benchmark mode and a local checker script for testing.
-All mandatory tests in this workspace currently pass.
+- Algorithm design
 
 ## AI Usage
 
