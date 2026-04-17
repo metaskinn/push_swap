@@ -46,10 +46,13 @@ make fclean
 make re
 ```
 
-### Run
+### Run examples:
 ```bash
-./push_swap [--bench] [--simple|--medium|--complex|--adaptive] "3 2 1"
-./push_swap [--bench] [--simple|--medium|--complex|--adaptive] 3 2 1
+./push_swap 2 1 3 6 5 8
+./push_swap --simple 5 4 3 2 1
+./push_swap --medium 4 67 3 87 23
+./push_swap --complex 4 67 3 87 23
+./push_swap --adaptive 4 67 3 87 23
 ```
 
 ### Behavior rules
@@ -59,14 +62,6 @@ make re
 - If no arguments are provided, the program exits silently.
 - Invalid input prints `Error` to **stderr**.
 - Strategy flags must be provided before numeric arguments.
-
-### Quick check
-```bash
-ARG="4 67 3 87 23"
-./push_swap --complex $ARG
-./push_swap --bench --adaptive $ARG 2> bench.txt
-cat bench.txt
-```
 
 ## Algorithm Design
 
@@ -117,8 +112,23 @@ Threshold rationale: values `0.2` and `0.5` come directly from subject-defined d
 - Complexity classes above are stated as upper-bound behavior in operation count.
 
 ## Contributors
-- **metaskin**: argument/flag parser flow, complex strategy implementation, core stack structure
-- **asobolev**: `atoi` and conversion utilities, split/tokenization utilities, simple and medium strategies
+
+### metaskin
+- Designed the argument and flag parsing flow.
+- Implemented the complex strategy dispatch path.
+- Worked on the core stack structure and execution pipeline.
+- Helped define benchmark reporting and strategy selection behavior.
+
+### asobolev
+- Implemented `atoi` and number conversion utilities.
+- Implemented split and tokenization utilities.
+- Worked on the simple and medium strategies.
+- Helped validate parsing edge cases and input handling.
+
+### Shared work
+- Both contributors reviewed the adaptive thresholds and the disorder-based strategy mapping.
+- Both contributors verified the benchmark output format and the README wording.
+- Both contributors were responsible for understanding and defending the final implementation.
 
 ## Resources
 
