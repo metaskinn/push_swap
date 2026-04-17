@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 OBJ_DIR = obj
 
 SRCS = \
-	00_main.c \
+	01_main.c \
 	02_03_split.c \
 	02_03_parse.c \
 	02_03_atol.c \
