@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "utils.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 static int	putstr_fd_local(int fd, const char *s)
 {

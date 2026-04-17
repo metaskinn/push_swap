@@ -6,14 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:05:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:55:55 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/17 12:54:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-
-# include <stdlib.h>
 
 typedef enum e_which_algo
 {

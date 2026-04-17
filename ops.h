@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:50:25 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:55:51 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/17 12:55:22 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "parser.h"
 # include "stack.h"
-# include <unistd.h>
 
 typedef enum e_op
 {

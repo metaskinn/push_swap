@@ -12,6 +12,7 @@
 
 #include "parser.h"
 #include "utils.h"
+#include <unistd.h>
 
 int	error(void)
 {

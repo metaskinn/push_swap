@@ -6,11 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:16 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/16 13:53:23 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/17 13:03:03 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ops.h"
+#include <unistd.h>
 
 void	ra(t_stack *a, t_flags *flag)
 {

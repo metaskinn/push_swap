@@ -6,11 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:40:49 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/16 13:53:15 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/17 13:01:53 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ops.h"
+#include <unistd.h>
 
 static void	count_push_op(t_flags *flag, t_op op, char *name)
 {

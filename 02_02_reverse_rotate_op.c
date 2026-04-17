@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ops.h"
+#include <unistd.h>
 
 void	rra(t_stack *a, t_flags *flag)
 {
