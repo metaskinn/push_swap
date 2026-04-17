@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:54:08 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/17 12:00:28 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 		parse->args = argv + start;
 		parse->must_free = 0;
 	}
-	else if (ws.count == 1)
-		parse_joined_args(argc, argv, start, parse);
 	else
-		error();
+		parse_joined_args(argc, argv, start, parse);
 	return (1);
 }
 
