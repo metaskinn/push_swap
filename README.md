@@ -6,7 +6,7 @@
 `push_swap` sorts integers in stack **a** using only allowed Push Swap operations and an auxiliary stack **b**.
 
 This implementation includes all mandatory strategy modes required by the subject:
-- `--simple` → Simple strategy (`O(n^2)`)
+- `--simple` → Simple strategy (`O(n²)`)
 - `--medium` → Medium strategy (`O(n * sqrt(n))`)
 - `--complex` → Complex strategy (`O(n log n)`)
 - `--adaptive` (default) → Chooses strategy from initial disorder
@@ -38,7 +38,7 @@ make re
 
 Notes:
 - If no arguments are provided, program exits silently.
-- On invalid input (non-integer, overflow, duplicates, malformed tokens), program prints `Error` to stderr.
+- On invalid input (non-integer, overflow, duplicates, malformed tokens), program prints `Error` to **stderr**.
 - Flags must be provided before numeric arguments.
 
 ### Quick checks
@@ -54,7 +54,7 @@ cat bench.txt
 Disorder is computed before sorting as inversion ratio:
 `mistakes / total_pairs`, range `[0, 1]`.
 
-### Simple (`O(n^2)`)
+### Simple (`O(n²)`)
 Selection-like extraction:
 1. Find minimum in stack `a`
 2. Rotate/reverse-rotate `a` to top
@@ -77,7 +77,7 @@ Index-based radix approach:
 
 ### Adaptive
 Adaptive uses initial disorder thresholds:
-- `disorder < 0.2` → Simple (`O(n^2)`)
+- `disorder < 0.2` → Simple (`O(n²)`)
 - `0.2 <= disorder < 0.5` → Medium (`O(n * sqrt(n))`)
 - `disorder >= 0.5` → Complex (`O(n log n)`)
 
@@ -99,7 +99,7 @@ Special-case optimization: for very small inputs (`<= 5`), dedicated small-sort 
   - Simple and medium strategy implementations
 
 ## Resources
-- 42 subject: Push Swap
+- Push Swap Project Subject (42 School)
 - Donald Knuth, *The Art of Computer Programming* (sorting and complexity)
 - Big-O overview: <https://en.wikipedia.org/wiki/Analysis_of_algorithms>
 - Stack ADT reference: <https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>
