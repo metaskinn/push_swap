@@ -7,8 +7,8 @@
 
 This implementation includes all mandatory strategy modes required by the subject:
 - `--simple` → Simple strategy (`O(n^2)`)
-- `--medium` → Medium strategy (`O(n\sqrt{n})`)
-- `--complex` → Complex strategy (`O(n\log n)`)
+- `--medium` → Medium strategy (`O(n√n)`)
+- `--complex` → Complex strategy (`O(n log n)`)
 - `--adaptive` (default) → Chooses strategy from initial disorder
 
 Optional benchmark mode (`--bench`) prints metrics to **stderr**:
@@ -61,14 +61,14 @@ Selection-like extraction:
 3. `pb` to `b`
 4. `pa` all back to `a`
 
-### Medium (`O(n\sqrt{n})` target)
+### Medium (`O(n√n)` target)
 Chunk-based strategy:
 1. Assign rank indices
 2. Push elements from `a` to `b` by growing chunk limit
 3. Use `rb` placement optimization inside `b`
 4. Push back max-first to `a`
 
-### Complex (`O(n\log n)` target)
+### Complex (`O(n log n)` target)
 Index-based radix approach:
 1. Assign rank indices
 2. Process bits from LSB to MSB
@@ -78,8 +78,8 @@ Index-based radix approach:
 ### Adaptive
 Adaptive uses initial disorder thresholds:
 - `disorder < 0.2` → Simple (`O(n^2)`)
-- `0.2 <= disorder < 0.5` → Medium (`O(n\sqrt{n})`)
-- `disorder >= 0.5` → Complex (`O(n\log n)`)
+- `0.2 <= disorder < 0.5` → Medium (`O(n√n)`)
+- `disorder >= 0.5` → Complex (`O(n log n)`)
 
 Special-case optimization: for very small inputs (`<= 5`), dedicated small-sort routine is used.
 
