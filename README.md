@@ -83,7 +83,7 @@ Adaptive uses initial disorder thresholds:
 
 Special-case optimization: for very small inputs (`<= 5`), dedicated small-sort routine is used.
 
-Rationale: this mapping follows the project requirement that the adaptive mode must use an `O(n²)` method in the low-disorder regime, `O(n * sqrt(n))` in medium disorder, and `O(n log n)` in high disorder.
+Rationale: this mapping follows the project requirement that the adaptive mode must use an `O(n²)` method in the low-disorder regime, `O(n * sqrt(n))` in medium disorder, and `O(n log n)` in high disorder. The threshold values (`0.2` and `0.5`) are taken directly from the subject-defined disorder regimes.
 
 ### Complexity rationale (Push Swap operation model)
 - **Time:** counted as number of emitted operations.
