@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
+#include "push_swap.h"
 
 void	run_selected_algo(t_program *program)
 {

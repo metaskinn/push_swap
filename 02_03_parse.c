@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/17 12:00:28 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:43:44 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+#include "push_swap.h"
 
 static int	parse_joined_args(int argc, char **argv, int start, t_parse *parse)
 {
@@ -19,11 +18,11 @@ static int	parse_joined_args(int argc, char **argv, int start, t_parse *parse)
 
 	joined = join_args(argv, start, argc);
 	if (!joined)
-		error();
+		error_cleanup(parse);
 	parse->args = split(joined);
 	free(joined);
 	if (!parse->args || !(parse->args[0]))
-		error();
+		error_cleanup(parse);
 	parse->must_free = 1;
 	return (1);
 }
@@ -32,7 +31,7 @@ static int	parse_single_arg(char **argv, int start, t_parse *parse)
 {
 	parse->args = split(argv[start]);
 	if (!parse->args || !(parse->args[0]))
-		error();
+		error_cleanup(parse);
 	parse->must_free = 1;
 	return (1);
 }
@@ -43,7 +42,7 @@ static int	parse_multi_arg(int argc, char **argv, int start, t_parse *parse)
 
 	ws = check_argv_wspace(argv, start, argc);
 	if (ws.count == -1)
-		error();
+		error_cleanup(parse);
 	if (ws.count == 0)
 	{
 		parse->args = argv + start;
@@ -64,13 +63,14 @@ int	read_args(int argc, char **argv, t_flags *flag, t_parse *parse)
 		return (0);
 	default_flag(flag);
 	if (handle_flags(argc, argv, flag, &start))
-		error();
+		error_cleanup(parse);
 	if (start >= argc)
 		return (0);
 	if (argc - start == 1)
 		parse_single_arg(argv, start, parse);
 	else
 		parse_multi_arg(argc, argv, start, parse);
-	check_numbers(parse->args);
+	if (check_numbers(parse->args))
+		error_cleanup(parse);
 	return (1);
 }

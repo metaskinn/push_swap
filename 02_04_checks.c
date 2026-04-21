@@ -6,16 +6,22 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 19:42:04 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/16 13:54:45 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:52:37 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
-#include <unistd.h>
+#include "push_swap.h"
 
-int	error(void)
+void	error(void)
 {
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	error_cleanup(t_parse *parse)
+{
+	if (parse && parse->must_free && parse->args)
+		free_split(parse->args);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -61,7 +67,7 @@ int	has_dup(char **args)
 		{
 			b = ft_atol(args[j]);
 			if (a == b)
-				error();
+				return (1);
 			j++;
 		}
 		i++;

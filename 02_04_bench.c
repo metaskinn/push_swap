@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
-#include "ops.h"
-#include "utils.h"
+#include "push_swap.h"
 
 static const char	*strategy_name(t_which_algo algo)
 {

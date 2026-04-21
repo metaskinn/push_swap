@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
+#include "push_swap.h"
 
 void	adaptive_sort(t_stack *a, t_stack *b, t_flags *flag)
 {

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+#include "push_swap.h"
 
 int	has_wspace_char(char *s)
 {

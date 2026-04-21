@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 03:13:47 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/17 12:57:44 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:45:42 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
-#include "ops.h"
+#include "push_swap.h"
 
 static int	find_min_index(t_stack *a)
 {
@@ -67,7 +66,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_flags *flag)
 
 	if (!a || !b)
 		return ;
-	while (a->size > 0 && compute_disorder(*a) != 0)
+	while (a->size > 0 && !is_sorted_stack(a))
 	{
 		min_index = find_min_index(a);
 		rotate_simple(a, min_index, flag);

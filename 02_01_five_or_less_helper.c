@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
-#include "ops.h"
+#include "push_swap.h"
 
 int	is_sorted_stack(t_stack *a)
 {

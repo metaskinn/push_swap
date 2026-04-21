@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 01:52:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:53:47 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:49:20 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+#include "push_swap.h"
 
 void	default_flag(t_flags *flag)
 {
@@ -57,12 +56,7 @@ static int	pre_algo(t_flags *flag, t_which_algo algo)
 
 int	apply_flag(t_flags *flag, char *arg)
 {
-	if (flag->algo_did && (ft_strcmp(arg, "--bench") == 0 || ft_strcmp(arg,
-				"--simple") == 0 || ft_strcmp(arg, "--medium") == 0
-			|| ft_strcmp(arg, "--complex") == 0 || ft_strcmp(arg,
-				"--adaptive") == 0))
-		return (1);
-	else if (ft_strcmp(arg, "--bench") == 0)
+	if (ft_strcmp(arg, "--bench") == 0)
 		flag->bench = 1;
 	else if (ft_strcmp(arg, "--simple") == 0)
 		return (pre_algo(flag, SIMPLE));

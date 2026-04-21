@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:41:08 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/16 13:53:19 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:43:51 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ops.h"
-#include <unistd.h>
+#include "push_swap.h"
 
 void	rra(t_stack *a, t_flags *flag)
 {

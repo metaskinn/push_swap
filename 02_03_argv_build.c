@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+#include "push_swap.h"
 
 char	*join_args(char **argv, int start, int argc)
 {

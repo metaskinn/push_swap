@@ -6,13 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 04:25:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:54:58 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:44:26 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include <stdarg.h>
-#include <unistd.h>
+#include "push_swap.h"
 
 static int	putstr_fd_local(int fd, const char *s)
 {

@@ -6,12 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 22:30:42 by asobolev          #+#    #+#             */
-/*   Updated: 2026/04/16 13:53:43 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:51:11 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
-#include "utils.h"
+#include "push_swap.h"
 
 static long	parse_number(char *str, int *i, int sign)
 {
@@ -22,7 +21,7 @@ static long	parse_number(char *str, int *i, int sign)
 	{
 		result = result * 10 + (str[*i] - '0');
 		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
-			return (error());
+			return (0);
 		(*i)++;
 	}
 	return (result);
@@ -38,7 +37,7 @@ long	ft_atol(char *str)
 	sign = 1;
 	i = 0;
 	if (!str)
-		return (error());
+		return (0);
 	while (is_wspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -48,11 +47,11 @@ long	ft_atol(char *str)
 		i++;
 	}
 	if (str[i] < '0' || str[i] > '9')
-		return (error());
+		return (0);
 	result = parse_number(str, &i, sign);
 	while (is_wspace(str[i]))
 		i++;
 	if (str[i] != '\0')
-		return (error());
+		return (0);
 	return (result * sign);
 }

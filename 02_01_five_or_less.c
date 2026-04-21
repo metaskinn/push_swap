@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
-#include "ops.h"
+#include "push_swap.h"
 
 void	sort_two(t_stack *a, t_flags *flag)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ops.h"
+#include "push_swap.h"
 #include <unistd.h>
 
 static void	count_push_op(t_flags *flag, t_op op, char *name)

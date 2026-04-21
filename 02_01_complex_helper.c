@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
-#include "ops.h"
+#include "push_swap.h"
 
 void	complex_assign_indices(t_stack *a)
 {
