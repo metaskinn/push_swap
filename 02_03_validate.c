@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 00:00:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/21 17:03:58 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/26 05:11:54 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ static int	is_negative_int(char *digits)
 
 static int	validate_int_range(char *str)
 {
-	int	sign;
-	int	i;
+	int		sign;
+	int		i;
+	char	*digits;
 
 	i = 0;
 	sign = 1;
@@ -43,9 +44,14 @@ static int	validate_int_range(char *str)
 			sign = -1;
 		i++;
 	}
+	digits = str + i;
+	while (*digits == '0')
+		digits++;
+	if (!*digits)
+		return (1);
 	if (sign == 1)
-		return (is_positive_int(str + i));
-	return (is_negative_int(str + i));
+		return (is_positive_int(digits));
+	return (is_negative_int(digits));
 }
 
 int	check_numbers(char **args)

@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 16:20:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/21 16:43:44 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/26 05:02:04 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ static int	parse_joined_args(int argc, char **argv, int start, t_parse *parse)
 	if (!joined)
 		error_cleanup(parse);
 	parse->args = split(joined);
+	parse->must_free = 1;
 	free(joined);
 	if (!parse->args || !(parse->args[0]))
 		error_cleanup(parse);
-	parse->must_free = 1;
 	return (1);
 }
 
 static int	parse_single_arg(char **argv, int start, t_parse *parse)
 {
 	parse->args = split(argv[start]);
+	parse->must_free = 1;
 	if (!parse->args || !(parse->args[0]))
 		error_cleanup(parse);
-	parse->must_free = 1;
 	return (1);
 }
 
