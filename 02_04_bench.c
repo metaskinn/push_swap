@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 03:30:00 by metaskin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:54:39 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/04/30 00:33:49 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ static const char	*strategy_name(t_which_algo algo)
 static const char	*strategy_complexity(t_flags *flag)
 {
 	if (flag->which_algo == SIMPLE)
-		return ("$O(n^2)$");
+		return ("O(n^2)");
 	if (flag->which_algo == MEDIUM)
-		return ("$O(n\\sqrt{n})$");
+		return ("O(n√n)");
 	if (flag->which_algo == COMPLEX)
-		return ("$O(n\\log n)$");
+		return ("O(n log n)");
 	if (flag->disorder < 0.2)
-		return ("$O(n^2)$");
+		return ("O(n^2)");
 	if (flag->disorder < 0.5)
-		return ("$O(n\\sqrt{n})$");
-	return ("$O(n\\log n)$");
+		return ("O(n√n)");
+	return ("O(n log n)");
 }
 
 static void	print_op_counts(t_flags *flag)
@@ -66,7 +66,7 @@ static void	print_disorder_percent(double disorder)
 void	print_benchmark(t_program *program)
 {
 	print_disorder_percent(program->flag.disorder);
-	ft_printf_fd(2, "[bench] strategy: %s / %s\n",
+	ft_printf_fd(2, "[bench] strategy:  %s / %s\n",
 		strategy_name(program->flag.which_algo),
 		strategy_complexity(&program->flag));
 	ft_printf_fd(2, "[bench] total_ops: %d\n", program->flag.total_ops);
